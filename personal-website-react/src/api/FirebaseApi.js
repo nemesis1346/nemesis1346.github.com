@@ -39,5 +39,10 @@ class FirebaseApi {
             .ref(path + '/' + name)
             .put(blob, metadata)
     }
+    static getImage(path){
+        return firebase
+        .storage()
+        .ref(path);
+    }
 }
 export default FirebaseApi;

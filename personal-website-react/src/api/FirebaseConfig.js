@@ -19,12 +19,12 @@ import 'firebase/storage'
 
   //Just firebase
   export const FirebaseConfig = {
-    apiKey: "AIzaSyD5PNSGg7cBTpuCrZuqmieh6xqOT-iEDOw",
-    authDomain: "media-lengua.firebaseapp.com",
-    databaseURL: "https://media-lengua.firebaseio.com",
-    projectId: "media-lengua",
-    storageBucket: "media-lengua.appspot.com",
-    messagingSenderId: "952281713521"
+    apiKey: "AIzaSyCaStbOcXxRGzjLmYzL_-IwTKdZAVjK5YY",
+    authDomain: "cms-personal.firebaseapp.com",
+    databaseURL: "https://cms-personal.firebaseio.com",
+    projectId: "cms-personal",
+    storageBucket: "cms-personal.appspot.com",
+    messagingSenderId: "524767534957"
   };
 
   firebase.initializeApp(FirebaseConfig);
