@@ -1,14 +1,38 @@
 import React from "react";
+import { connect } from "react-redux";
+import { getProfessionalImage } from "../../actions/userActions";
+
+import '../styles/homePage.css';
 
 class HomePage extends React.Component {
+  componentWillMount() {
+    this.props.getProfessionalImage();
+  }
   render() {
+    console.log(this.props);
+    const { professionalProfilePhoto } = this.props;
     return (
-      <div>
-        <h1>Home Page</h1>
-        <img height="125" width="50" ref ='https://firebasestorage.googleapis.com/v0/b/cms-personal.appspot.com/o/photos%2Fprofessional%2F11760211_10153518330269901_2258052334167645237_n.jpg?alt=media&token=87e235ee-0cb3-4265-a2e2-3d16ba2e0a8d'></img>
+      <div className="home-page-container">
+        <div className="left-container holder">
+          <img src={professionalProfilePhoto} />
+        </div>
+        <div className="right-container">
+          <h1>Home Page</h1>
+        </div>
       </div>
     );
   }
 }
 
-export default HomePage;
+const mapStateToPropsHomePage = state => {
+  console.log(state);
+  //In this case objects is gonna be applied to the props of the component
+  return {
+    professionalProfilePhoto: state.userReducer.professionalProfilePhoto
+  };
+};
+
+export default connect(
+  mapStateToPropsHomePage,
+  { getProfessionalImage }
+)(HomePage);

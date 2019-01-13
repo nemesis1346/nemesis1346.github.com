@@ -42,7 +42,9 @@ class FirebaseApi {
     static getImage(path){
         return firebase
         .storage()
-        .ref(path);
+        .ref()
+        .child(path)
+        .getDownloadURL();
     }
 }
 export default FirebaseApi;

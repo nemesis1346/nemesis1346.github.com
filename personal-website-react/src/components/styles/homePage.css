@@ -1,0 +1,17 @@
+.home-page-container {
+  position: absolute;
+  padding: 32px;
+}
+
+.left-container {
+  width: auto;
+  display: inline-block;
+}
+.left-container img {
+  width: 80%;
+  height: auto;
+}
+
+.right-container {
+  float: right;
+}
