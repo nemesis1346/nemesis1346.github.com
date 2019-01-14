@@ -15,7 +15,8 @@ class BlogCard extends React.Component {
                 {/* Fix image header */}
                 <header className="card-header" style={style}>
                 </header>
-                <img src= {post.imageUrl}></img>
+                <a href={post.url} target="_blank"> 
+                    <img src={post.imageUrl}></img> </a>
                 <div className="card-body">
                     <p className="date"></p>
                     <h2>{post.title}</h2>
