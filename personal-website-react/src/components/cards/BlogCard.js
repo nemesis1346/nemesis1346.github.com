@@ -3,8 +3,10 @@ import React from 'react';
 class BlogCard extends React.Component {
 
     render() {
-        const { image, title, titleText } = this.props;
+        const { post,image } = this.props;
 
+        console.log(this.props);
+        console.log(post);
         var style = {
             backgroundImage: 'url(' + image + ')',
         }
@@ -13,9 +15,9 @@ class BlogCard extends React.Component {
                 <header className="card-header" style={style}>
                 </header>
                 <div className="card-body">
-                    <p classname="date"></p>
-                    <h2>{title}</h2>
-                    <p className="body+content">{titleText} hola</p>
+                    <p className="date"></p>
+                    <h2>{post.title}</h2>
+                    <p className="body+content">{post.titleText} hola</p>
                     <button className="button button-primary">
                         <i className="fa fa-chevron-right">Read more...</i>
                     </button>

@@ -8,6 +8,7 @@ const NavBar = (props) => {
                 <a className="brand-logo">Marco Maigua</a>
                 <ul className="right">
                     <li><Link to="/">Home</Link></li>
+                    <li><Link to="/blogPage">Blog</Link></li>
                 </ul>
             </div>
         </nav>

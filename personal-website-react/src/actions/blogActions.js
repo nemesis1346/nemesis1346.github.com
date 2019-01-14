@@ -5,10 +5,16 @@ import {
 } from "../constants/types";
 
 export const getBlogs = () => {
+    console.log('gets here');
   return (dispatch, getState, { getFirebase, getFirestore }) => {
-    FirebaseApi.getImage("/photos/professional/professionalPhoto1.jpg")
+    FirebaseApi.getDocuments("/posts")
       .then(res => {
-        dispatch(getBlogsSuccess(res));
+          let postsList = [];
+          res.forEach(doc => {
+            console.log(`${doc.id} => ${doc.data()}`);
+            postsList.push(doc.data());
+          });
+        dispatch(getBlogsSuccess(postsList));
       })
       .catch(err => {
         dispatch(handleError(err.message));
@@ -20,14 +26,14 @@ export const getBlogs = () => {
 const getBlogsSuccess = posts => {
     return {
       type: GET_BLOGS_SUCCESS,
-      professionalProfilePhoto: posts
+      posts: posts
     };
   };
   
   const handleError = message => {
     return {
       type: ERROR_MIDDLEWARE,
-      message: message
+      error: message
     };
   };
   

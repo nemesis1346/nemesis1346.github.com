@@ -1,7 +1,8 @@
-import { GET_BLOGS_SUCCESS } from '../constants/types';
+import { GET_BLOGS_SUCCESS, ERROR_MIDDLEWARE } from '../constants/types';
 
 const initState = {
-    posts: []
+    posts: [],
+    error:''
 }
 
 const blogPageReducer = (state = initState, action = {}) => {
@@ -10,6 +11,11 @@ const blogPageReducer = (state = initState, action = {}) => {
             return {
                 ...state,
                 posts: action.posts
+            }
+        case ERROR_MIDDLEWARE:
+            return {
+                ...state,
+                error: action.error
             }
         default:
             return state;

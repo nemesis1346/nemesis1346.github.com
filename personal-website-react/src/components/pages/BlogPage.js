@@ -4,34 +4,46 @@ import {
     getBlogs,
 } from "../../actions/blogActions";
 import BlogCard from '../cards/BlogCard';
+import { Message } from 'semantic-ui-react'
 
 class BlogPage extends React.Component {
     componentWillMount() {
         this.props.getBlogs();
     }
     render() {
+        console.log('POSTS');
+        console.log(this.props);
         const {
-            posts
+            posts,
+            error
         } = this.props;
         return (
             <div className="blog-page-container">
-                <div className="app-card-list" id="app-card-list">
-                    {
-                        Object
-                            .keys(posts)
-                            .map(key => <BlogCard key={key} index={key} details={posts[key]} />)
-                    }
-                </div>
+                {posts && posts.length > 0 ? (
+                    <div className="app-card-list" id="app-card-list">
+                        {
+                            Object
+                                .keys(posts)
+                                .map(key => <BlogCard key={key} index={key} post={posts[key]} />)
+                        }
+                    </div>
+                ) : (
+                        <Message >
+                            <Message.Header>Error</Message.Header>
+                            <p>{error}</p>
+                        </Message>
+                    )}
+
             </div>
         );
     }
 }
 
 const mapStateToPropsBlogPage = state => {
-    console.log(state);
     //In this case objects is gonna be applied to the props of the component
     return {
-        posts: state.blogPageReducer.posts
+        posts: state.blogPageReducer.posts,
+        error: state.blogPageReducer.error
     };
 };
 

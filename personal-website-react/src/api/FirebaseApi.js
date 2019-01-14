@@ -9,10 +9,26 @@ class FirebaseApi {
             .once('value')
 
     }
-    static getDocument(path) {
+    /**
+     * This method is for using the firestore with collections
+     * @param {null} no input 
+     */
+    static getDocuments(path){
         return firebase
           .firestore()
           .collection(path)
+          .get();
+    }
+    /**
+     * This method is for using the firestore with collections
+     * @param {path} string This is the path of the collection
+     * @param {nameDoc} string This is the name of the document
+     */
+    static getDocument(path,nameDoc) {
+        return firebase
+          .firestore()
+          .collection(path)
+          .doc(nameDoc)
           .get();
       }
 

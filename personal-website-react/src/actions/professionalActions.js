@@ -23,13 +23,13 @@ export const getProfessionalImage = () => {
 
 export const getProfessionalContent = () => {
   return (dispatch, getState, { getFirebase, getFirestore }) => {
-    FirebaseApi.getDocument("/content")
-      .then(res => {
-        res.forEach(doc => {
-          //TODO: This must bechanged with several photos
-          console.log(`${doc.id} => ${doc.data()}`);
+    FirebaseApi.getDocument("/content","UJ9dOUKXi627jKWxPDPb")
+      .then(doc => {
+        console.log(doc.data());
+        if(doc.exists){
+          console.log(doc);
           dispatch(getProfessionalContentSuccess(doc.data()));
-        });
+        }
       })
       .catch(err => {
         dispatch(handleError(err.message));
@@ -60,7 +60,6 @@ export const getMediumLogo = () => {
 };
 export const getGithubLogo = () => {
   return (dispatch, getState, { getFirebase, getFirestore }) => {
-    console.log("GETS HERE");
     FirebaseApi.getImage("/photos/logos/github.png")
       .then(res => {
         dispatch(getGithubLogoSuccess(res));

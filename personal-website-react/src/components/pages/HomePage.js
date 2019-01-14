@@ -22,7 +22,6 @@ class HomePage extends React.Component {
     this.props.getMediumLogo();
   }
   render() {
-    console.log(this.props);
     const {
       professionalProfilePhoto,
       professionalProfileContent,
@@ -63,7 +62,6 @@ class HomePage extends React.Component {
 }
 
 const mapStateToPropsHomePage = state => {
-  console.log(state);
   //In this case objects is gonna be applied to the props of the component
   return {
     professionalProfilePhoto:
