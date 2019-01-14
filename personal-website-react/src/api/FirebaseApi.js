@@ -9,6 +9,12 @@ class FirebaseApi {
             .once('value')
 
     }
+    static getDocument(path) {
+        return firebase
+          .firestore()
+          .collection(path)
+          .get();
+      }
 
     static getValueByKey(path, key) {
         return firebase
