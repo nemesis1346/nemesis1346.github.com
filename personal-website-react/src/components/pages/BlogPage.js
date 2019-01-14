@@ -5,6 +5,7 @@ import {
 } from "../../actions/blogActions";
 import BlogCard from '../cards/BlogCard';
 import { Message } from 'semantic-ui-react'
+import '../styles/blogPage.scss';
 
 class BlogPage extends React.Component {
     componentWillMount() {
