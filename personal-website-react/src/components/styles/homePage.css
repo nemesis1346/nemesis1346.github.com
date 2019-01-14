@@ -18,3 +18,11 @@
   width: 58%;
   padding-right: 32px;
 }
+
+.social-media-container{
+
+}
+.social-media-container img{
+  width: 64px;
+  height: auto;
+}
