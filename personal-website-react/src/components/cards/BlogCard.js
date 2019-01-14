@@ -3,17 +3,19 @@ import React from 'react';
 class BlogCard extends React.Component {
 
     render() {
-        const { post,image } = this.props;
+        const { post } = this.props;
 
         console.log(this.props);
-        console.log(post);
+        console.log(post.imageUrl);
         var style = {
-            backgroundImage: 'url(' + image + ')',
+            backgroundImage: 'url(' + post.imageUrl + ')',
         }
         return (
             <div className="card">
+                {/* Fix image header */}
                 <header className="card-header" style={style}>
                 </header>
+                <img src= {post.imageUrl}></img>
                 <div className="card-body">
                     <p className="date"></p>
                     <h2>{post.title}</h2>
