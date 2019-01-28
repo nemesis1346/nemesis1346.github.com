@@ -5,6 +5,7 @@ class BlogCard extends React.Component {
 
     render() {
         const { post } = this.props;
+        console.log(post.url);
         return (
             <div className="post card">
                 <div className="img-container">
@@ -16,7 +17,7 @@ class BlogCard extends React.Component {
                     <h2>{post.title}</h2>
                     <p >{post.titleText}</p>
                     <button className="button button-primary">
-                       <a href={post.url}><i className="fa fa-chevron-right">Read more...</i></a> 
+                       <a href={post.url}  target="_blank"><i className="fa fa-chevron-right">Read more...</i></a> 
                     </button>
                 </div>
             </div>

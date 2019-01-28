@@ -37,6 +37,10 @@ class HomePage extends React.Component {
         </div>
         <div className="right-container">
           <h1>Marco Maigua</h1>
+          <a href="https://firebasestorage.googleapis.com/v0/b/cms-personal.appspot.com/o/documents%2Fcv_marco_maigua.pdf?alt=media&token=b9a96229-2869-4eba-ac9a-639aef6dc25b"  target="_blank">
+            <i className="fa fa-chevron-right">Personal Resume</i>
+          </a>
+
           <p>{professionalProfileContent}</p>
           <div className="social-media-container">
             <a
