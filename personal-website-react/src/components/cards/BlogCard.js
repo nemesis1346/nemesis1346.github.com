@@ -1,28 +1,22 @@
 import React from 'react';
+import '../styles/blogCard.scss';
 
 class BlogCard extends React.Component {
 
     render() {
         const { post } = this.props;
-
-        console.log(this.props);
-        console.log(post.imageUrl);
-        var style = {
-            backgroundImage: 'url(' + post.imageUrl + ')',
-        }
         return (
-            <div className="card">
-                {/* Fix image header */}
-                <header className="card-header" style={style}>
-                </header>
+            <div className="post card">
+                <div className="img-container">
                 <a href={post.url} target="_blank"> 
                     <img src={post.imageUrl}></img> </a>
+                </div>
                 <div className="card-body">
-                    <p className="date"></p>
+                    <p >{post.date}</p>
                     <h2>{post.title}</h2>
-                    <p className="body+content">{post.titleText} hola</p>
+                    <p >{post.titleText}</p>
                     <button className="button button-primary">
-                        <i className="fa fa-chevron-right">Read more...</i>
+                       <a href={post.url}><i className="fa fa-chevron-right">Read more...</i></a> 
                     </button>
                 </div>
             </div>
