@@ -7,7 +7,7 @@ import {
   getGithubLogo,
   getGitlabLogo,
   getMediumLogo
-} from "../../actions/professionalActions";
+} from "../../actions/professionalFirebaseActions";
 
 import "../styles/homePage.css";
 

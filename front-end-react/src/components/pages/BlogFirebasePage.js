@@ -2,13 +2,13 @@ import React from "react";
 import { connect } from "react-redux";
 import {
     getBlogs,
-} from "../../actions/blogDjangoActions";
+} from "../../actions/blogFirebaseActions";
 import BlogCard from '../cards/BlogCard';
 import { Message } from 'semantic-ui-react'
 import '../styles/blogPage.scss';
 
 //This page done for the firebase framework with just links of medium
-class BlogPage extends React.Component {
+class BlogFirebasePage extends React.Component {
     componentWillMount() {
         this.props.getBlogs();
     }
@@ -54,4 +54,4 @@ export default connect(
     {
         getBlogs,
     }
-)(BlogPage);
+)(BlogFirebasePage);

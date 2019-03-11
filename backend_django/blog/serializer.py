@@ -2,5 +2,5 @@ from rest_framework import serializers
 from blog.models import Post
 class PostSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Port
+        model = Post
         fields = '__all__'
