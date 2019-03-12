@@ -6,6 +6,14 @@ export const parseResponse = (response) => {
         return body.message;
     }
 }
+export const parseResponseDjango = (response) => {
+   
+    if (response.status == '200') {
+        return response.data;
+    } else {
+        return 'Something went wrong';
+    }
+}
 //  MORE EFFICIENT, BUT LESS FUN
 /**
  * @description Remove duplicates from an array of objects in javascript

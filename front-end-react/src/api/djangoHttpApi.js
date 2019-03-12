@@ -10,8 +10,7 @@ const instanceDefault = axios.create({ baseURL: 'http://localhost:8000' }); // t
 export default {
     blog: {
         getAllBlogs: () => {
-            let headersFiles = { 'Content-Type': 'application/json' }
-            return instanceDefault.get('/api/blogs', { headers: headersFiles })
+            return instanceDefault.get('/api/blogs')
         }
            
     }
