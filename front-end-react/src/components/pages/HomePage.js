@@ -37,7 +37,7 @@ class HomePage extends React.Component {
         </div>
         <div className="right-container">
           <h1>Marco Maigua</h1>
-          <a class="waves-effect waves-light btn button-resume" href="https://firebasestorage.googleapis.com/v0/b/cms-personal.appspot.com/o/documents%2Fcv_marco_maigua.pdf?alt=media&token=b9a96229-2869-4eba-ac9a-639aef6dc25b"  target="_blank">
+          <a className="waves-effect waves-light btn button-resume" href="https://firebasestorage.googleapis.com/v0/b/cms-personal.appspot.com/o/documents%2Fcv_marco_maigua.pdf?alt=media&token=b9a96229-2869-4eba-ac9a-639aef6dc25b"  target="_blank">
             <i>Personal Resume</i>
           </a>
 
