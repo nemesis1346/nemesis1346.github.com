@@ -15,7 +15,7 @@ class ProjectCard extends React.Component {
                 <div className="card-body">
                     <h2>{post.title}</h2>
                     <p >{post.titleText}</p>
-                       <a href={post.url}  target="_blank"><i className="waves-effect waves-light btn">Read more...</i></a> 
+                       <a href={post.url}  target="_blank"><i className="waves-effect waves-light btn">See Project</i></a> 
                 </div>
             </div>
         )
