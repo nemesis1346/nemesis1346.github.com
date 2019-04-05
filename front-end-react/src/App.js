@@ -3,7 +3,7 @@ import { Route, BrowserRouter } from "react-router-dom";
 import NavBar from "./components/navigation/NavBar";
 import HomePage from "./components/pages/HomePage";
 import BlogFirebasePage from './components/pages/BlogFirebasePage';
-import BlogPage from './components/pages/BlogPage';
+import BlogDjangoPage from './components/pages/BlogDjangoPage';
 
 class App extends Component {
   render() {
@@ -13,7 +13,7 @@ class App extends Component {
           <NavBar />
           <Route path="/" exact component={HomePage} />
           <Route path="/blogFirebasePage" exact component={BlogFirebasePage} />
-          <Route path = "/blogPage" exact component = {BlogPage}></Route>
+          <Route path = "/blogDjangoPage" exact component = {BlogDjangoPage}></Route>
         </div>
       </BrowserRouter>
     );

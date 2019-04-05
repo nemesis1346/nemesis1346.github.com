@@ -1,32 +1,32 @@
 import React from "react";
 import { connect } from "react-redux";
 import {
-    getBlogs,
-} from "../../actions/blogDjangoActions";
-import BlogCard from '../cards/BlogCard';
+    getProjects,
+} from "../../actions/projectFirebaseActions";//change
+import ProjectCard from '../cards/ProjectCard';
 import { Message } from 'semantic-ui-react'
 import '../styles/blogPage.scss';
 
 //This page done for the firebase framework with just links of medium
-class BlogPage extends React.Component {
+class ProjectsPage extends React.Component {
     componentWillMount() {
-        this.props.getBlogs();
+        this.props.getProjects();
     }
     render() {
-        console.log('POSTS');
+        console.log('PROJECTS');
         console.log(this.props);
         const {
-            posts,
+            projects,
             error
         } = this.props;
         return (
-            <div className="blog-page-container">
-                {posts && posts.length > 0 ? (
+            <div>
+                {projects && projects.length > 0 ? (
                     <div className="app-card-list" id="app-card-list">
                         {
                             Object
-                                .keys(posts)
-                                .map(key => <BlogCard key={key} index={key} post={posts[key]} />)
+                                .keys(projects)
+                                .map(key => <ProjectCard key={key} index={key} post={projects[key]} />)
                         }
                     </div>
                 ) : (
@@ -41,17 +41,17 @@ class BlogPage extends React.Component {
     }
 }
 
-const mapStateToPropsBlogPage = state => {
+const mapStateToPropsProjectsPage = state => {
     //In this case objects is gonna be applied to the props of the component
     return {
-        posts: state.blogPageReducer.posts,
-        error: state.blogPageReducer.error
+        projects: state.projectsPageReducer.projects,
+        error: state.projectsPageReducer.error
     };
 };
 
 export default connect(
-    mapStateToPropsBlogPage,
+    mapStateToPropsProjectsPage,
     {
-        getBlogs,
+        getProjects,
     }
-)(BlogPage);
+)(ProjectsPage);

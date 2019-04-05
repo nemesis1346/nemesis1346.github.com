@@ -1,7 +1,7 @@
 import React from 'react';
-import '../styles/blogCard.scss';
+import '../styles/projectCard.scss';
 
-class BlogCard extends React.Component {
+class ProjectCard extends React.Component {
 
     render() {
         const { post } = this.props;
@@ -13,7 +13,6 @@ class BlogCard extends React.Component {
                     <img src={post.imageUrl}></img> </a>
                 </div>
                 <div className="card-body">
-                    <p >{post.date}</p>
                     <h2>{post.title}</h2>
                     <p >{post.titleText}</p>
                        <a href={post.url}  target="_blank"><i className="waves-effect waves-light btn">Read more...</i></a> 
@@ -23,4 +22,4 @@ class BlogCard extends React.Component {
     }
 }
 
-export default BlogCard;
+export default ProjectCard;
