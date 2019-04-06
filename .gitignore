@@ -1,9 +1,0 @@
-.vscode
-front-end-react/node_modules
-front-end-react/package-lock.json
-
-node_modules*
-package-lock.json*
-yarn-lock*
-*.pyc
-*.log
