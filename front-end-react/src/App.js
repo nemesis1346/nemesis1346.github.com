@@ -9,7 +9,7 @@ import ProjectsPage from './components/pages/ProjectsPage';
 class App extends Component {
   render() {
     return (
-      <BrowserRouter>
+      <BrowserRouter basename={process.env.PUBLIC_URL}>
         <div className="App">
           <NavBar />
           <Route path="/" exact component={HomePage} />
