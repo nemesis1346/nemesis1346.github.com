@@ -30,7 +30,10 @@ class HomePage extends React.Component {
       gitlabLogo,
       mediumLogo
     } = this.props;
+    console.log(this.props.language);
+
     return (
+      
       <div className="home-page-container">
         <div className="left-container holder">
           <img src={professionalProfilePhoto} />
@@ -75,7 +78,8 @@ const mapStateToPropsHomePage = state => {
     linkedinLogo: state.professionalPageReducer.linkedinLogo,
     githubLogo: state.professionalPageReducer.githubLogo,
     gitlabLogo: state.professionalPageReducer.gitlabLogo,
-    mediumLogo: state.professionalPageReducer.mediumLogo
+    mediumLogo: state.professionalPageReducer.mediumLogo,
+    language:state.constantReducer.language
   };
 };
 

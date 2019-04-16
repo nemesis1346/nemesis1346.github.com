@@ -5,6 +5,7 @@ import HomePage from "./components/pages/HomePage";
 import BlogFirebasePage from './components/pages/BlogFirebasePage';
 import BlogDjangoPage from './components/pages/BlogDjangoPage';
 import ProjectsPage from './components/pages/ProjectsPage';
+import 'materialize-css/dist/css/materialize.min.css';
 
 class App extends Component {
   render() {
