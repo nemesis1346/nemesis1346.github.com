@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import {
-    getBlogs,
+    getBlogs,getBlogsByDatetime
 } from "../../actions/blogFirebaseActions";
 import BlogCard from '../cards/BlogCard';
 import { Message } from 'semantic-ui-react'
@@ -10,7 +10,8 @@ import '../styles/blogPage.scss';
 //This page done for the firebase framework with just links of medium
 class BlogFirebasePage extends React.Component {
     componentWillMount() {
-        this.props.getBlogs();
+        //this.props.getBlogs();
+        this.props.getBlogsByDatetime();
     }
     render() {
         console.log('POSTS');
@@ -52,6 +53,6 @@ const mapStateToPropsBlogPage = state => {
 export default connect(
     mapStateToPropsBlogPage,
     {
-        getBlogs,
+        getBlogs,getBlogsByDatetime
     }
 )(BlogFirebasePage);

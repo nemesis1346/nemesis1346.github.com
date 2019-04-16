@@ -22,6 +22,25 @@ export const getProjects = () => {
   };
 };
 
+export const getProjectsByDatetime = () => {
+  return (dispatch) => {
+    FirebaseApi.getDocumentsOrderedBy('/projects', 'timestamp')
+      .then(res => {
+        let projectsList = [];
+        res.forEach(doc => {
+          console.log(`${doc.id} => ${doc.data()}`);
+          projectsList.push(doc.data());
+        });
+        dispatch(getProjectsSuccess(projectsList));
+      })
+      .catch(err => {
+        console.log('ERROR GET PROJECTS BY DATETIME');
+        console.log(err);
+        dispatch(handleError(err.message));
+      });
+  }
+}
+
 
 const getProjectsSuccess = projects => {
     return {

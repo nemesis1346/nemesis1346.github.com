@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import {
-    getProjects,
+    getProjects,getProjectsByDatetime
 } from "../../actions/projectFirebaseActions";//change
 import ProjectCard from '../cards/ProjectCard';
 import { Message } from 'semantic-ui-react'
@@ -10,7 +10,8 @@ import '../styles/blogPage.scss';
 //This page done for the firebase framework with just links of medium
 class ProjectsPage extends React.Component {
     componentWillMount() {
-        this.props.getProjects();
+        //this.props.getProjects();
+        this.props.getProjectsByDatetime();
     }
     render() {
         console.log('PROJECTS');
@@ -52,6 +53,6 @@ const mapStateToPropsProjectsPage = state => {
 export default connect(
     mapStateToPropsProjectsPage,
     {
-        getProjects,
+        getProjects,getProjectsByDatetime
     }
 )(ProjectsPage);

@@ -13,24 +13,24 @@ class FirebaseApi {
      * This method is for using the firestore with collections
      * @param {null} no input 
      */
-    static getDocuments(path){
+    static getDocuments(path) {
         return firebase
-          .firestore()
-          .collection(path)
-          .get();
+            .firestore()
+            .collection(path)
+            .get();
     }
     /**
      * This method is for using the firestore with collections
      * @param {path} string This is the path of the collection
      * @param {nameDoc} string This is the name of the document
      */
-    static getDocument(path,nameDoc) {
+    static getDocument(path, nameDoc) {
         return firebase
-          .firestore()
-          .collection(path)
-          .doc(nameDoc)
-          .get();
-      }
+            .firestore()
+            .collection(path)
+            .doc(nameDoc)
+            .get();
+    }
 
     static getValueByKey(path, key) {
         return firebase
@@ -39,6 +39,16 @@ class FirebaseApi {
             .orderByKey()
             .equalTo(key)
             .once('child_added');
+    }
+
+    static getDocumentsOrderedBy(path, property) {
+        console.log('is getting here');
+
+        return firebase
+            .firestore()
+            .collection(path)
+            .orderBy(property,'desc')
+            .get();
     }
 
     static setValue(path, value) {
@@ -61,12 +71,12 @@ class FirebaseApi {
             .ref(path + '/' + name)
             .put(blob, metadata)
     }
-    static getImage(path){
+    static getImage(path) {
         return firebase
-        .storage()
-        .ref()
-        .child(path)
-        .getDownloadURL();
+            .storage()
+            .ref()
+            .child(path)
+            .getDownloadURL();
     }
 }
 export default FirebaseApi;
