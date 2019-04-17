@@ -58,7 +58,7 @@ class HomePage extends React.Component {
             <a href="https://gitlab.com/nemesis1346" target="_blank">
               <img src={gitlabLogo} />
             </a>
-            <a href="https://medium.com/@marco.maigua1346" target="_blank">
+            <a href="https://medium.com/@nemesis1346" target="_blank">
               <img src={mediumLogo} />
             </a>
           </div>
