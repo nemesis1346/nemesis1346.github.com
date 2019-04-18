@@ -8,5 +8,5 @@ export const GET_GITLAB_LOGO_SUCCESS = "GET_GITLAB_LOGO_SUCCESS";
 export const GET_BLOGS_SUCCESS = "GET_BLOGS_SUCCESS";
 export const GET_PROJECTS_SUCCESS="GET_PROJECTS_SUCCESS";
 export const SET_LANGUAGE="SET_LANGUAGE";
-export const SPANISH_LANGUAGE= "Español";
-export const ENGLISH_LANGUAGE="Ingles";
+export const SPANISH_LANGUAGE= "Spanish";
+export const ENGLISH_LANGUAGE="English";

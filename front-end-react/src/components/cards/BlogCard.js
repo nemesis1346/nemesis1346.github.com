@@ -1,6 +1,7 @@
 import React from 'react';
 import '../styles/blogCard.scss';
 
+
 class BlogCard extends React.Component {
 
     render() {

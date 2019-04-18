@@ -16,6 +16,8 @@ class ProjectsPage extends React.Component {
     render() {
         console.log('PROJECTS');
         console.log(this.props);
+        console.log('Language ');
+        console.log(this.props.language);
         const {
             projects,
             error
@@ -27,7 +29,7 @@ class ProjectsPage extends React.Component {
                         {
                             Object
                                 .keys(projects)
-                                .map(key => <ProjectCard key={key} index={key} post={projects[key]} />)
+                                .map(key => <ProjectCard key={key} index={key} project={projects[key]} />)
                         }
                     </div>
                 ) : (
@@ -46,7 +48,8 @@ const mapStateToPropsProjectsPage = state => {
     //In this case objects is gonna be applied to the props of the component
     return {
         projects: state.projectsPageReducer.projects,
-        error: state.projectsPageReducer.error
+        error: state.projectsPageReducer.error,
+        language:state.constantReducer.language
     };
 };
 
