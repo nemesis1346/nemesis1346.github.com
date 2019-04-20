@@ -8,11 +8,12 @@ import {
   getGitlabLogo,
   getMediumLogo
 } from "../../actions/professionalFirebaseActions";
-
+import { SPANISH_LANGUAGE, ENGLISH_LANGUAGE } from '../../constants/types';
 import "../styles/homePage.css";
 
 class HomePage extends React.Component {
   componentWillMount() {
+
     this.props.getProfessionalImage();
     this.props.getProfessionalContent();
     this.props.getLinkedinLogo();
@@ -30,21 +31,37 @@ class HomePage extends React.Component {
       gitlabLogo,
       mediumLogo
     } = this.props;
-    console.log(this.props.language);
-
+    console.log('PROFILE CONTENT');
+    console.log(this.props.professionalProfileContent);
+    let language = this.props.language;
+    let content="Loading";
+    if(professionalProfileContent){
+      switch (language) {
+        case SPANISH_LANGUAGE:
+          content = professionalProfileContent.Spanish;
+          break;
+        case ENGLISH_LANGUAGE:
+          content = professionalProfileContent.English;
+          break;
+        default:
+          content = professionalProfileContent.English;
+          break;
+      }
+    }
+    
     return (
-      
+
       <div className="home-page-container">
         <div className="left-container holder">
           <img src={professionalProfilePhoto} />
         </div>
         <div className="right-container">
           <h1>Marco Maigua</h1>
-          <a className="waves-effect waves-light btn button-resume" href="https://firebasestorage.googleapis.com/v0/b/cms-personal.appspot.com/o/documents%2Fcv_marco_maigua.pdf?alt=media&token=b9a96229-2869-4eba-ac9a-639aef6dc25b"  target="_blank">
+          <a className="waves-effect waves-light btn button-resume" href="https://firebasestorage.googleapis.com/v0/b/cms-personal.appspot.com/o/documents%2Fcv_marco_maigua.pdf?alt=media&token=b9a96229-2869-4eba-ac9a-639aef6dc25b" target="_blank">
             <i>Personal Resume</i>
           </a>
 
-          <p>{professionalProfileContent}</p>
+          <p>{content}</p>
           <div className="social-media-container">
             <a
               href="https://www.linkedin.com/in/marco-maigua-66822584/"
@@ -79,7 +96,7 @@ const mapStateToPropsHomePage = state => {
     githubLogo: state.professionalPageReducer.githubLogo,
     gitlabLogo: state.professionalPageReducer.gitlabLogo,
     mediumLogo: state.professionalPageReducer.mediumLogo,
-    language:state.constantReducer.language
+    language: state.constantReducer.language
   };
 };
 

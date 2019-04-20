@@ -25,9 +25,9 @@ export const getProfessionalContent = () => {
   return (dispatch, getState, { getFirebase, getFirestore }) => {
     FirebaseApi.getDocument("/content","UJ9dOUKXi627jKWxPDPb")
       .then(doc => {
-        console.log(doc.data());
         if(doc.exists){
-          console.log(doc);
+          console.log('RESPONSE');
+          console.log(doc.data());
           dispatch(getProfessionalContentSuccess(doc.data()));
         }
       })
@@ -109,7 +109,7 @@ const getMediumLogoSuccess = image => {
 const getProfessionalContentSuccess = contents => {
   return {
     type: GET_CONTENT_SUCCESS,
-    professionalProfileContent: contents.spanish
+    professionalProfileContent: contents
   };
 };
 
