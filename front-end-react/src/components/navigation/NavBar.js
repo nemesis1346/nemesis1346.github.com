@@ -29,7 +29,7 @@ class NavBar extends React.Component {
                 </ul>
                 <nav className="nav wrapper blue darken-3">
                     <div className="container">
-                        <a className="brand-logo">Marco Maigua</a>
+                        <a className="brand-logo left">Marco Maigua</a>
                         <ul className="right">
                             <li><Link to="/">Home</Link></li>
                             <li><Link to="/blogFirebasePage">Blog</Link></li>
