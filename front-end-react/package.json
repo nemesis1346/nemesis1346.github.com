@@ -2,7 +2,7 @@
   "name": "personal-website-react",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://nemesis1346.github.io/self-promotion",
+  "homepage": "https://marcomaigua.com",
   "dependencies": {
     "axios": "^0.18.0",
     "babel-loader": "8.0.4",
@@ -27,7 +27,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "predeploy": "npm run build",
-    "deploy": "gatsby build && gh-pages -d public --branch master",
+    "deploy": "gh-pages -d build",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
