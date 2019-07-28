@@ -6,6 +6,7 @@ import BlogFirebasePage from './components/pages/BlogFirebasePage';
 import BlogDjangoPage from './components/pages/BlogDjangoPage';
 import ProjectsPage from './components/pages/ProjectsPage';
 import 'materialize-css/dist/css/materialize.min.css';
+import TemplageExamplePage from './components/pages/TemplateExamplePage';
 
 class App extends Component {
   render() {
@@ -17,6 +18,8 @@ class App extends Component {
           <Route path="/blogFirebasePage" exact component={BlogFirebasePage} />
           <Route path = "/blogDjangoPage" exact component = {BlogDjangoPage}></Route>
           <Route path = '/projects' exact component = {ProjectsPage}></Route>
+          <Route path = '/templateExamplePage' exact component = {TemplageExamplePage}></Route>
+
         </div>
       </BrowserRouter>
     );
