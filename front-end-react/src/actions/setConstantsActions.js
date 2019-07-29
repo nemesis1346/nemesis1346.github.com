@@ -1,9 +1,7 @@
-import {
-    SET_LANGUAGE
-} from '../constants/types';
+import * as CONSTANTS from '../constants/types';
 export const setLanguage = (language) => {
     return {
-        type: SET_LANGUAGE,
+        type: CONSTANTS.SET_LANGUAGE,
         language: language
     };
 }

@@ -1,8 +1,6 @@
 import FirebaseApi from "../api/FirebaseApi";
-import {
-  ERROR_MIDDLEWARE,
-  GET_BLOGS_SUCCESS,
-} from "../constants/types";
+import * as CONSTANTS from "../constants/types";
+import * as ERRORS from '../constants/errors';
 
 export const getBlogs = () => {
   return (dispatch, getState, { getFirebase, getFirestore }) => {
@@ -43,14 +41,14 @@ export const getBlogsByDatetime = () => {
 
 const getBlogsSuccess = posts => {
   return {
-    type: GET_BLOGS_SUCCESS,
+    type: CONSTANTS.GET_BLOGS_SUCCESS,
     posts: posts
   };
 };
 
 const handleError = message => {
   return {
-    type: ERROR_MIDDLEWARE,
+    type: ERRORS.ERROR_MIDDLEWARE,
     error: message
   };
 };

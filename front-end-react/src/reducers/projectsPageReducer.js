@@ -1,18 +1,18 @@
-import { GET_PROJECTS_SUCCESS, ERROR_MIDDLEWARE } from '../constants/types';
-
+import * as CONSTANTS from '../constants/types';
+import * as ERRORS from '../constants/errors';
 const initState = {
     projects: [],
-    error:''
+    error: ''
 }
 
 const projectsPageReducer = (state = initState, action = {}) => {
     switch (action.type) {
-        case GET_PROJECTS_SUCCESS:
+        case CONSTANTS.GET_PROJECTS_SUCCESS:
             return {
                 ...state,
                 projects: action.projects
             }
-        case ERROR_MIDDLEWARE:
+        case ERRORS.ERROR_MIDDLEWARE:
             return {
                 ...state,
                 error: action.error

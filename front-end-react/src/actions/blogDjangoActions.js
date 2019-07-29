@@ -1,9 +1,7 @@
-import {
-  ERROR_MIDDLEWARE,
-  GET_BLOGS_SUCCESS,
-} from "../constants/types";
+import * as CONSTANTS from "../constants/types";
+import * as ERRORS from "../constants/errors";
 import djangoHttpApi from '../api/djangoHttpApi';
-import {parseResponseDjango} from '../utils/Utils';
+import { parseResponseDjango } from '../utils/Utils';
 
 export const getBlogs = () => {
   return (dispatch) => {
@@ -11,12 +9,12 @@ export const getBlogs = () => {
       .then(res => {
         console.log('Response')
         console.log(res)
-        let result=parseResponseDjango(res)
+        let result = parseResponseDjango(res)
         console.log(result)
-          // let postsList = [];
-          // res.forEach(doc => {
-          //   postsList.push(doc.data());
-          // });
+        // let postsList = [];
+        // res.forEach(doc => {
+        //   postsList.push(doc.data());
+        // });
         //dispatch(getBlogsSuccess(postsList));
       })
       .catch(err => {
@@ -28,16 +26,15 @@ export const getBlogs = () => {
 
 
 const getBlogsSuccess = posts => {
-    return {
-      type: GET_BLOGS_SUCCESS,
-      posts: posts
-    };
+  return {
+    type: CONSTANTS.GET_BLOGS_SUCCESS,
+    posts: posts
   };
-  
-  const handleError = message => {
-    return {
-      type: ERROR_MIDDLEWARE,
-      error: message
-    };
+};
+
+const handleError = message => {
+  return {
+    type: ERRORS.ERROR_MIDDLEWARE,
+    error: message
   };
-  
+};

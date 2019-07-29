@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import {
-    getMediumLogo
+    getCarouselImages
 } from "../../actions/professionalFirebaseActions";
 import { SPANISH_LANGUAGE, ENGLISH_LANGUAGE } from '../../constants/types';
 import "../styles/homePage.css";
@@ -15,6 +15,7 @@ class CarouselPage extends React.Component {
         return (
 
             <div className="home-page-container">
+                hola
                 <AwesomeSlider>
                     <div data-src="/path/to/image-0.png" />
                     <div data-src="/path/to/image-1.png" />

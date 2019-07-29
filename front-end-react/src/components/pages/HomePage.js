@@ -12,6 +12,7 @@ import * as CONSTANTS from '../../constants/types';
 import "../styles/homePage.css";
 
 class HomePage extends React.Component {
+
   componentWillMount() {
 
     this.props.getProfessionalImage('/professional/professionalPhoto1.jpg');
@@ -31,8 +32,7 @@ class HomePage extends React.Component {
       gitlabLogo,
       mediumLogo
     } = this.props;
-    console.log('PROFILE CONTENT');
-    console.log(this.props.professionalProfileContent);
+
     let language = this.props.language;
     let content="Loading";
     if(professionalProfileContent){

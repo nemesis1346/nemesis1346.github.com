@@ -1,6 +1,4 @@
-import {
-    SET_LANGUAGE
-} from '../constants/types';
+import * as CONSTANTS from '../constants/types';
 
 const initState = {
     language: 'language'
@@ -8,7 +6,7 @@ const initState = {
 
 const constantReducer = (state = initState, action = {}) => {
     switch (action.type) {
-        case SET_LANGUAGE:
+        case CONSTANTS.SET_LANGUAGE:
             return {
                 ...constantReducer,
                 language: action.language
