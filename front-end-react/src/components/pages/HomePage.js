@@ -8,7 +8,7 @@ import {
   getGitlabLogo,
   getMediumLogo
 } from "../../actions/professionalFirebaseActions";
-import { SPANISH_LANGUAGE, ENGLISH_LANGUAGE } from '../../constants/types';
+import * as CONSTANTS from '../../constants/types';
 import "../styles/homePage.css";
 
 class HomePage extends React.Component {
@@ -37,10 +37,10 @@ class HomePage extends React.Component {
     let content="Loading";
     if(professionalProfileContent){
       switch (language) {
-        case SPANISH_LANGUAGE:
+        case CONSTANTS.SPANISH_LANGUAGE:
           content = professionalProfileContent.Spanish;
           break;
-        case ENGLISH_LANGUAGE:
+        case CONSTANTS.ENGLISH_LANGUAGE:
           content = professionalProfileContent.English;
           break;
         default:
