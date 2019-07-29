@@ -9,9 +9,9 @@ import {
   GET_GITLAB_LOGO_SUCCESS
 } from "../constants/types";
 
-export const getProfessionalImage = () => {
+export const getProfessionalImage = (path) => {
   return (dispatch, getState, { getFirebase, getFirestore }) => {
-    FirebaseApi.getImage("/photos/professional/professionalPhoto1.jpg")
+    FirebaseApi.getImage("/photos"+path)
       .then(res => {
         dispatch(getProfessionalImageSuccess(res));
       })

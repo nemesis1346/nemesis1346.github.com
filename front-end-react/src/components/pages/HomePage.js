@@ -14,7 +14,7 @@ import "../styles/homePage.css";
 class HomePage extends React.Component {
   componentWillMount() {
 
-    this.props.getProfessionalImage();
+    this.props.getProfessionalImage('/professional/professionalPhoto1.jpg');
     this.props.getProfessionalContent();
     this.props.getLinkedinLogo();
     this.props.getLinkedinLogo();
