@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import {
+  getProfessionalImage,
   getProfessionalContent,
   getLinkedinLogo,
   getGithubLogo,
@@ -9,12 +10,11 @@ import {
 } from "../../actions/professionalFirebaseActions";
 import * as CONSTANTS from '../../constants/types';
 import "../styles/homePage.css";
-import { Image } from 'react-bootstrap';
 
-
-class HomePage extends React.Component {
+class AboutMePage extends React.Component {
 
   componentWillMount() {
+    this.props.getProfessionalImage();
     this.props.getProfessionalContent();
     this.props.getLinkedinLogo();
     this.props.getLinkedinLogo();
@@ -33,8 +33,8 @@ class HomePage extends React.Component {
     } = this.props;
 
     let language = this.props.language;
-    let content = "Loading";
-    if (professionalProfileContent) {
+    let content="Loading";
+    if(professionalProfileContent){
       switch (language) {
         case CONSTANTS.SPANISH_LANGUAGE:
           content = professionalProfileContent.Spanish;
@@ -47,16 +47,19 @@ class HomePage extends React.Component {
           break;
       }
     }
-
+    
     return (
 
       <div className="home-page-container">
-        <div className="col-center">
-          <img src="https://firebasestorage.googleapis.com/v0/b/cms-personal.appspot.com/o/photos%2Fprofessional%2FprofessionalImage3.jpg?alt=media&token=09ffbe8e-6602-4efb-93b1-a4476089536a" />
+        <div className="left-container holder">
+          <img src={professionalProfilePhoto} />
         </div>
+        <div className="right-container">
+          <h1>Marco Maigua</h1>
+          <a className="waves-effect waves-light btn button-resume" href="https://firebasestorage.googleapis.com/v0/b/cms-personal.appspot.com/o/documents%2Fcv_marco_maigua.pdf?alt=media&token=b9a96229-2869-4eba-ac9a-639aef6dc25b" target="_blank">
+            <i>Personal Resume</i>
+          </a>
 
-
-        <div className="container">
           <p>{content}</p>
           <div className="social-media-container">
             <a
@@ -84,6 +87,8 @@ class HomePage extends React.Component {
 const mapStateToPropsHomePage = state => {
   //In this case objects is gonna be applied to the props of the component
   return {
+    professionalProfilePhoto:
+      state.professionalPageReducer.professionalProfilePhoto,
     professionalProfileContent:
       state.professionalPageReducer.professionalProfileContent,
     linkedinLogo: state.professionalPageReducer.linkedinLogo,
@@ -97,10 +102,11 @@ const mapStateToPropsHomePage = state => {
 export default connect(
   mapStateToPropsHomePage,
   {
+    getProfessionalImage,
     getProfessionalContent,
     getLinkedinLogo,
     getGithubLogo,
     getGitlabLogo,
     getMediumLogo
   }
-)(HomePage);
+)(AboutMePage);

@@ -29,3 +29,7 @@
 .button-resume{
   margin: 16px;
 }
+
+.col-center{
+  margin:0 auto;
+}

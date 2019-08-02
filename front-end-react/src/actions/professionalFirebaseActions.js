@@ -4,7 +4,7 @@ import * as ERRORS from '../constants/errors';
 
 export const getProfessionalImage = () => {
   return (dispatch) => {
-    FirebaseApi.getImage("/photos/professional/professionalPhoto1.jpg")
+    FirebaseApi.getImage("/photos/professional/professionalImage2.jpg")
       .then(res => {
         dispatch(getProfessionalImageSuccess(res));
       })
