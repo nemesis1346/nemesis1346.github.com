@@ -11,3 +11,6 @@ So far the projects I am gonna show are:
 
 ##### Error handling 
 If babel-loader has some problems then we should install npm install babel-loader@8.0.4
+
+### Latest updates
+Djano folder is not yet being used
