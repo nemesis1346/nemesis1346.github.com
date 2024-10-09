@@ -14,3 +14,6 @@ If babel-loader has some problems then we should install npm install babel-loade
 
 ### Latest updates
 Djano folder is not yet being used
+
+### Versions
+Node 20

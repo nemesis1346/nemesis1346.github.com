@@ -1,10 +1,7 @@
-import firebase, { firestore } from 'firebase/app';
-import 'firebase/firestore';
-import 'firebase/auth';
-import 'firebase/database'
-import 'firebase/storage'
+//maybe this is outdated
+
 //Firestore
- export const FirestoreConfig ={
+export const FirestoreConfig = {
   apiKey: "AIzaSyCaStbOcXxRGzjLmYzL_-IwTKdZAVjK5YY",
   authDomain: "cms-personal.firebaseapp.com",
   databaseURL: "https://cms-personal.firebaseio.com",
@@ -13,17 +10,14 @@ import 'firebase/storage'
   messagingSenderId: "524767534957"
 }
 
-  //Just firebase
-  export const FirebaseConfig = {
-    apiKey: "AIzaSyCaStbOcXxRGzjLmYzL_-IwTKdZAVjK5YY",
-    authDomain: "cms-personal.firebaseapp.com",
-    databaseURL: "https://cms-personal.firebaseio.com",
-    projectId: "cms-personal",
-    storageBucket: "cms-personal.appspot.com",
-    messagingSenderId: "524767534957"
-  };
+//Just firebase
+export const FirebaseConfig = {
+  apiKey: "AIzaSyCaStbOcXxRGzjLmYzL_-IwTKdZAVjK5YY",
+  authDomain: "cms-personal.firebaseapp.com",
+  databaseURL: "https://cms-personal.firebaseio.com",
+  projectId: "cms-personal",
+  storageBucket: "cms-personal.appspot.com",
+  messagingSenderId: "524767534957"
+};
 
-  firebase.initializeApp(FirebaseConfig);
-  firebase.firestore().settings({timestampsInSnapshots:true});
-  
-  export default firebase;
+

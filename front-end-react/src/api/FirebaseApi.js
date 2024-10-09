@@ -1,82 +1,71 @@
-import firebase from '../api/FirebaseConfig' //this is mandatory, must come from the setup
+// Importing required functions from Firebase v9
+import { getFirestore, collection, getDocs, doc, getDoc, orderBy, query, setDoc } from 'firebase/firestore';
+import { getDatabase, ref, get, child, query as dbQuery, orderByKey, equalTo, once, set } from 'firebase/database';
+import { getStorage, ref as storageRef, uploadBytes, getDownloadURL } from 'firebase/storage';
+import { FirebaseConfig } from '../index.js'; // Ensure this is the path to your Firebase config file
+
+// Initialize Firestore and Database
+const firestore = getFirestore(); // Firestore initialization
+const database = getDatabase(); // Realtime Database initialization
+const storage = getStorage(); // Storage initialization
 
 class FirebaseApi {
-
-    static getValues(path) {
-        return firebase
-            .database()
-            .ref(path)
-            .once('value')
-
-    }
-    /**
-     * This method is for using the firestore with collections
-     * @param {null} no input 
-     */
-    static getDocuments(path) {
-        return firebase
-            .firestore()
-            .collection(path)
-            .get();
-    }
-    /**
-     * This method is for using the firestore with collections
-     * @param {path} string This is the path of the collection
-     * @param {nameDoc} string This is the name of the document
-     */
-    static getDocument(path, nameDoc) {
-        return firebase
-            .firestore()
-            .collection(path)
-            .doc(nameDoc)
-            .get();
+    // Get values from Realtime Database
+    static async getValues(path) {
+        const dbRef = ref(database);
+        const snapshot = await get(child(dbRef, path));
+        return snapshot.val(); // Returns the data at the path
     }
 
-    static getValueByKey(path, key) {
-        return firebase
-            .database()
-            .ref(path)
-            .orderByKey()
-            .equalTo(key)
-            .once('child_added');
+    // Get all documents from Firestore collection
+    static async getDocuments(path) {
+        const colRef = collection(firestore, path);
+        const snapshot = await getDocs(colRef);
+        return snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() })); // Return documents with IDs
     }
 
-    static getDocumentsOrderedBy(path, property) {
-        console.log('is getting here');
-
-        return firebase
-            .firestore()
-            .collection(path)
-            .orderBy(property,'desc')
-            .get();
+    // Get a single document from Firestore
+    static async getDocument(path, nameDoc) {
+        const docRef = doc(firestore, path, nameDoc);
+        const snapshot = await getDoc(docRef);
+        return snapshot.exists() ? { id: snapshot.id, ...snapshot.data() } : null; // Return document data if exists
     }
 
-    static setValue(path, value) {
-        return firebase
-            .database()
-            .ref(path)
-            .set(value);
+    // Get value by key from Realtime Database
+    static async getValueByKey(path, key) {
+        const dbRef = ref(database);
+        const queryRef = dbQuery(dbRef, orderByKey(), equalTo(key));
+        const snapshot = await get(queryRef);
+        return snapshot.val(); // Return data for the matching key
     }
 
-    static saveFile(path, name, file) {
-        // let file =new File('/home/nemesis1346/Documents/UniversityProjects/takijunchik/react-front-end/data/audioFiles/audio.mp3');
-        var blob = new Blob(['/home/nemesis1346/Documents/UniversityProjects/takijunchik/react-front-end/data/audioFiles/audio.mp3'], { type: 'audio/mp3' });
-
-        let nameFile = name;//?
-        let metadata = {
-            contentType: 'audio/mp3'
-        }
-        return firebase
-            .storage()
-            .ref(path + '/' + name)
-            .put(blob, metadata)
+    // Get documents ordered by a specific property from Firestore
+    static async getDocumentsOrderedBy(path, property) {
+        const colRef = collection(firestore, path);
+        const orderedQuery = query(colRef, orderBy(property));
+        const snapshot = await getDocs(orderedQuery);
+        return snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() })); // Return ordered documents
     }
-    static getImage(path) {
-        return firebase
-            .storage()
-            .ref()
-            .child(path)
-            .getDownloadURL();
+
+    // Set a value in the Realtime Database
+    static async setValue(path, value) {
+        const dbRef = ref(database, path);
+        await set(dbRef, value); // Set value at the specified path
+    }
+
+    // Save a file to Firebase Storage
+    static async saveFile(path, name, file) {
+        // TODO: here i need to add the mp3 audio file
+        const blob = new Blob([file], { type: file.type }); // Ensure `file` is a Blob or a File object
+        const fileRef = storageRef(storage, `${path}/${name}`);
+        await uploadBytes(fileRef, blob); // Upload the file
+    }
+
+    // Get the download URL of an image from Storage
+    static async getImage(path) {
+        const fileRef = storageRef(storage, path);
+        return await getDownloadURL(fileRef); // Return download URL
     }
 }
+
 export default FirebaseApi;

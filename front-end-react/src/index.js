@@ -1,28 +1,70 @@
 // React libraries:
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { createStore, applyMiddleware, compose } from 'redux';
+import './index.css';
+import App from './App';
+import "semantic-ui-css/semantic.min.css";
+
+// Redux and Middleware
+import { applyMiddleware, compose } from 'redux';
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 import rootReducer from './reducers/rootReducer';
-import './index.css';
-import App from './App';
 
 // Firebase libraries
-import { reduxFirestore, getFirestore } from 'redux-firestore';
-import { reactReduxFirebase, getFirebase } from 'react-redux-firebase';
-import FirestoreConfig from './api/FirebaseConfig';
-import FirebaseConfig from './api/FirebaseConfig';
-import "semantic-ui-css/semantic.min.css";
+import { initializeApp } from 'firebase/app';
+import { getFirestore } from 'firebase/firestore';
+import { getAuth } from 'firebase/auth';
+import { ReactReduxFirebaseProvider, createFirestoreInstance } from 'react-redux-firebase'; // Correct import
 
-const store = createStore(
+export const FirebaseConfig = {
+    apiKey: "AIzaSyCaStbOcXxRGzjLmYzL_-IwTKdZAVjK5YY",
+    authDomain: "cms-personal.firebaseapp.com",
+    databaseURL: "https://cms-personal.firebaseio.com",
+    projectId: "cms-personal",
+    storageBucket: "cms-personal.appspot.com",
+    messagingSenderId: "524767534957"
+};
+
+
+// Initialize Firebase App
+const firebaseApp = initializeApp(FirebaseConfig);
+
+// Initialize Firebase Services
+const firestore = getFirestore(firebaseApp)
+const auth = getAuth(firebaseApp)
+
+// React Redux Firebase configuration
+const rrfConfig = {
+    userProfile: 'users', // Firestore collection where user profiles are stored
+    useFirestoreForProfile: true // Use Firestore for profile instead of Realtime Database
+};
+
+// Enhacers for Redux store
+const store = compose(
     rootReducer,
     compose(
-        applyMiddleware(thunk.withExtraArgument({ getFirebase, getFirestore })),
-        reduxFirestore(FirestoreConfig),
-        reactReduxFirebase(FirebaseConfig)
+        applyMiddleware(thunk.withExtraArgument({ getFirebase: auth, getFirestore: firestore })),
     )
-);
-ReactDOM.render(<Provider store={store}><App /></Provider>, document.getElementById('root'));
+)
+
+// React Redux Firebase provider props
+const rrfProps = {
+    firebase: firebaseApp,
+    config: rrfConfig,
+    dispatch: store.dispatch,
+    createFirestoreInstance // Pass createFirestoreInstance
+};
+
+// Wait for Firebase Auth to be ready before rendering the app
+store.firebaseAuthIsReady.then(() => {
+    ReactDOM.render(
+        <Provider store={store}>
+            <ReactReduxFirebaseProvider {...rrfProps}>
+                <App />
+            </ReactReduxFirebaseProvider>
+        </Provider>,
+        document.getElementById('root'));
+})
 
 
