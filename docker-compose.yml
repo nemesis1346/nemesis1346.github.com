@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  frontend:
+    build:
+      context: ./front-end-react
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./front-end-react:/usr/src/react
+    stdin_open: true
+    tty: true
+
+
