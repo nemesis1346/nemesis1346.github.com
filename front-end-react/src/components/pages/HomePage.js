@@ -52,7 +52,8 @@ class HomePage extends React.Component {
 
       <div className="home-page-container">
         <div className="col-center">
-          <img src="https://firebasestorage.googleapis.com/v0/b/cms-personal.appspot.com/o/photos%2Fprofessional%2FprofessionalImage3.jpg?alt=media&token=09ffbe8e-6602-4efb-93b1-a4476089536a" />
+          <img src="https://storage.cloud.google.com/cms-personal.appspot.com/photos/professional/professionalImage3.jpg" />
+
         </div>
 
 

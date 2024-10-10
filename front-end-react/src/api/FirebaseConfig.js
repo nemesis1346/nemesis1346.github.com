@@ -1,6 +1,4 @@
-//maybe this is outdated
-
-//Firestore
+//TODO: Firestore config might be outdated.
 export const FirestoreConfig = {
   apiKey: "AIzaSyCaStbOcXxRGzjLmYzL_-IwTKdZAVjK5YY",
   authDomain: "cms-personal.firebaseapp.com",
