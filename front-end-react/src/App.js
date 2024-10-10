@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Route, BrowserRouter } from "react-router-dom";
+import { Route, BrowserRouter, Routes } from "react-router-dom"; // Import Routes
 import NavBar from "./components/navigation/NavBar";
 import HomePage from "./components/pages/HomePage";
 import BlogFirebasePage from './components/pages/BlogFirebasePage';
@@ -15,13 +15,14 @@ class App extends Component {
       <BrowserRouter basename={process.env.PUBLIC_URL}>
         <div className="App">
           <NavBar />
-          <Route path="/" exact component={HomePage} />
-          <Route path="/blogFirebasePage" exact component={BlogFirebasePage} />
-          <Route path = "/blogDjangoPage" exact component = {BlogDjangoPage}></Route>
-          <Route path = '/projects' exact component = {ProjectsPage}></Route>
-          <Route path = '/aboutMe' exact component = {AboutMePage}></Route>
-          <Route path = '/carousel' exact component = {CarouselPage}></Route>
-
+          <Routes> {/* Wrap Routes inside Routes */}
+            <Route path="/" element={<HomePage />} /> {/* Use element prop */}
+            <Route path="/blogFirebasePage" element={<BlogFirebasePage />} />
+            <Route path="/blogDjangoPage" element={<BlogDjangoPage />} />
+            <Route path="/projects" element={<ProjectsPage />} />
+            <Route path="/aboutMe" element={<AboutMePage />} />
+            <Route path="/carousel" element={<CarouselPage />} />
+          </Routes> {/* End of Routes */}
         </div>
       </BrowserRouter>
     );

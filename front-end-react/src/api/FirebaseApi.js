@@ -1,13 +1,24 @@
 // Importing required functions from Firebase v9
+import { initializeApp, getApps, getApp } from 'firebase/app';
 import { getFirestore, collection, getDocs, doc, getDoc, orderBy, query, setDoc } from 'firebase/firestore';
 import { getDatabase, ref, get, child, query as dbQuery, orderByKey, equalTo, once, set } from 'firebase/database';
 import { getStorage, ref as storageRef, uploadBytes, getDownloadURL } from 'firebase/storage';
-import { FirebaseConfig } from '../index.js'; // Ensure this is the path to your Firebase config file
 
-// Initialize Firestore and Database
-const firestore = getFirestore(); // Firestore initialization
-const database = getDatabase(); // Realtime Database initialization
-const storage = getStorage(); // Storage initialization
+// Import Firebase configuration
+import FirebaseConfig from './FirebaseConfig'; 
+
+// Ensure Firebase is initialized only once
+let firebaseApp;
+if (!getApps().length) {
+    firebaseApp = initializeApp(FirebaseConfig);
+} else {
+    firebaseApp = getApp(); // If already initialized, use that one
+}
+
+// Initialize Firebase services
+const firestore = getFirestore(firebaseApp);
+const database = getDatabase(firebaseApp);
+const storage = getStorage(firebaseApp);
 
 class FirebaseApi {
     // Get values from Realtime Database

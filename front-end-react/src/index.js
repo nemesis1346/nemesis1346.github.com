@@ -6,7 +6,7 @@ import App from './App';
 import "semantic-ui-css/semantic.min.css";
 
 // Redux and Middleware
-import { applyMiddleware, compose } from 'redux';
+import { createStore, applyMiddleware, compose } from 'redux';
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 import rootReducer from './reducers/rootReducer';
@@ -17,14 +17,8 @@ import { getFirestore } from 'firebase/firestore';
 import { getAuth } from 'firebase/auth';
 import { ReactReduxFirebaseProvider, createFirestoreInstance } from 'react-redux-firebase'; // Correct import
 
-export const FirebaseConfig = {
-    apiKey: "AIzaSyCaStbOcXxRGzjLmYzL_-IwTKdZAVjK5YY",
-    authDomain: "cms-personal.firebaseapp.com",
-    databaseURL: "https://cms-personal.firebaseio.com",
-    projectId: "cms-personal",
-    storageBucket: "cms-personal.appspot.com",
-    messagingSenderId: "524767534957"
-};
+// Import Firebase configuration
+import FirebaseConfig from './api/FirebaseConfig'; 
 
 
 // Initialize Firebase App
@@ -37,15 +31,21 @@ const auth = getAuth(firebaseApp)
 // React Redux Firebase configuration
 const rrfConfig = {
     userProfile: 'users', // Firestore collection where user profiles are stored
-    useFirestoreForProfile: true // Use Firestore for profile instead of Realtime Database
+    useFirestoreForProfile: true, // Use Firestore for profile instead of Realtime Database
+    attachAuthIsReady: true, // Attach auth is ready
 };
 
+
+
 // Enhacers for Redux store
-const store = compose(
+const storeEnhancers = compose(
+    applyMiddleware(thunk.withExtraArgument({ getFirebase: auth, getFirestore: firestore })),
+)
+
+
+const store = createStore(
     rootReducer,
-    compose(
-        applyMiddleware(thunk.withExtraArgument({ getFirebase: auth, getFirestore: firestore })),
-    )
+    storeEnhancers
 )
 
 // React Redux Firebase provider props
@@ -55,6 +55,11 @@ const rrfProps = {
     dispatch: store.dispatch,
     createFirestoreInstance // Pass createFirestoreInstance
 };
+
+// Wait for Firebase Auth to be ready before rendering the app
+store.firebaseAuthIsReady = new Promise((resolve) => {
+    auth.onAuthStateChanged(resolve);
+});
 
 // Wait for Firebase Auth to be ready before rendering the app
 store.firebaseAuthIsReady.then(() => {
