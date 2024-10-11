@@ -23,6 +23,8 @@ class AboutMePage extends React.Component {
     this.props.getMediumLogo();
   }
   render() {
+    console.log('About Me Page');
+    console.log(this.props);
     const {
       professionalProfilePhoto,
       professionalProfileContent,

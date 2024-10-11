@@ -74,8 +74,8 @@ class FirebaseApi {
 
     // Get the download URL of an image from Storage
     static async getImage(path) {
-        const fileRef = storageRef(storage);
-        return await getDownloadURL(path); // Return download URL
+        const fileRef = storageRef(storage, path);
+        return await getDownloadURL(fileRef); // Return download URL
     }
 }
 
