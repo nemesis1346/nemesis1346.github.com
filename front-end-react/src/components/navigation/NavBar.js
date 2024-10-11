@@ -32,10 +32,10 @@ class NavBar extends React.Component {
                         <a className="brand-logo left">Marco Maigua</a>
                         <ul className="right">
                             <li><Link to="/">Home</Link></li>
-                            <li><Link to="/blogFirebasePage">Blog</Link></li>
                             <li><Link to="/softwareProjectsPage">Software Projects</Link></li>
                             <li><Link to="/webDesignProjectsPage">WebDesign Projects</Link></li>
-                            <li><Link to="/aboutMePage">About Me</Link></li>
+                            <li><Link to="/blogFirebasePage">Blog</Link></li>
+                            {/* <li><Link to="/aboutMePage">About Me</Link></li> */}
                             <li><a className="dropdown-trigger" href="#!" data-target="dropdown1">{this.state.language}<i className="material-icons right">arrow_drop_down</i></a></li>
                         </ul>
                     </div>

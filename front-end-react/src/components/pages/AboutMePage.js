@@ -1,3 +1,5 @@
+//Maybe this page is not necesarry anymore since i have the Home page for showing my profile
+
 import React from "react";
 import { connect } from "react-redux";
 import {
@@ -17,7 +19,6 @@ class AboutMePage extends React.Component {
     this.props.getProfessionalImage();
     this.props.getProfessionalContent();
     this.props.getLinkedinLogo();
-    this.props.getLinkedinLogo();
     this.props.getGithubLogo();
     this.props.getGitlabLogo();
     this.props.getMediumLogo();
@@ -35,8 +36,8 @@ class AboutMePage extends React.Component {
     } = this.props;
 
     let language = this.props.language;
-    let content="Loading";
-    if(professionalProfileContent){
+    let content = "Loading";
+    if (professionalProfileContent) {
       switch (language) {
         case CONSTANTS.SPANISH_LANGUAGE:
           content = professionalProfileContent.Spanish;
@@ -49,7 +50,7 @@ class AboutMePage extends React.Component {
           break;
       }
     }
-    
+
     return (
 
       <div className="home-page-container">

@@ -5,7 +5,8 @@ import {
   getLinkedinLogo,
   getGithubLogo,
   getGitlabLogo,
-  getMediumLogo
+  getMediumLogo,    
+  getProfessionalImage
 } from "../../actions/professionalFirebaseActions";
 import * as CONSTANTS from '../../constants/types';
 import "../styles/homePage.css";
@@ -15,8 +16,8 @@ import { Image } from 'react-bootstrap';
 class HomePage extends React.Component {
 
   componentWillMount() {
+    this.props.getProfessionalImage();
     this.props.getProfessionalContent();
-    this.props.getLinkedinLogo();
     this.props.getLinkedinLogo();
     this.props.getGithubLogo();
     this.props.getGitlabLogo();
@@ -53,13 +54,15 @@ class HomePage extends React.Component {
     return (
 
       <div className="home-page-container">
-        <div className="col-center">
-          <img src="https://storage.cloud.google.com/cms-personal.appspot.com/photos/professional/professionalImage3.jpg" />
-
+        <div className="left-container holder">
+          <img src={professionalProfilePhoto} />
         </div>
+        <div className="right-container">
+          <h1>Marco Maigua</h1>
+          <a className="waves-effect waves-light btn button-resume" href="https://storage.cloud.google.com/cms-personal.appspot.com/documents/cv_marco_maigua.pdf" target="_blank">
+            <i>Personal Resume</i>
+          </a>
 
-
-        <div className="container">
           <p>{content}</p>
           <div className="social-media-container">
             <a
@@ -71,10 +74,10 @@ class HomePage extends React.Component {
             <a href="https://github.com/nemesis1346" target="_blank">
               <img src={githubLogo} />
             </a>
-            {/* I am not using this at the moment */}
+            {/* Right not i am not using this */}
             {/* <a href="https://gitlab.com/nemesis1346" target="_blank">
-              <img src={gitlabLogo} />
-            </a> */}
+            <img src={gitlabLogo} />
+          </a> */}
             <a href="https://medium.com/@nemesis1346" target="_blank">
               <img src={mediumLogo} />
             </a>
@@ -88,6 +91,8 @@ class HomePage extends React.Component {
 const mapStateToPropsHomePage = state => {
   //In this case objects is gonna be applied to the props of the component
   return {
+    professionalProfilePhoto:
+    state.professionalPageReducer.professionalProfilePhoto,
     professionalProfileContent:
       state.professionalPageReducer.professionalProfileContent,
     linkedinLogo: state.professionalPageReducer.linkedinLogo,
@@ -101,6 +106,7 @@ const mapStateToPropsHomePage = state => {
 export default connect(
   mapStateToPropsHomePage,
   {
+    getProfessionalImage,
     getProfessionalContent,
     getLinkedinLogo,
     getGithubLogo,
