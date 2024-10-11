@@ -16,13 +16,12 @@ export const getProfessionalImage = () => {
 
 export const getProfessionalContent = () => {
   return (dispatch) => {
-    FirebaseApi.getDocument("/content","UJ9dOUKXi627jKWxPDPb")
+    FirebaseApi.getDocument("/content", "UJ9dOUKXi627jKWxPDPb")
       .then(doc => {
-        if(doc.exists){
-          console.log('RESPONSE');
-          console.log(doc.data());
-          dispatch(getProfessionalContentSuccess(doc.data()));
-        }
+        console.log('getProfessionalContent: ');
+        // console.log(doc);
+        dispatch(getProfessionalContentSuccess(doc));
+
       })
       .catch(err => {
         dispatch(handleError(err.message));

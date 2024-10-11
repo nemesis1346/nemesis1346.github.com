@@ -24,7 +24,7 @@ class AboutMePage extends React.Component {
   }
   render() {
     console.log('About Me Page');
-    console.log(this.props);
+    // console.log(this.props);
     const {
       professionalProfilePhoto,
       professionalProfileContent,

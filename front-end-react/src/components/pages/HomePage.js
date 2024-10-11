@@ -31,6 +31,8 @@ class HomePage extends React.Component {
       gitlabLogo,
       mediumLogo
     } = this.props;
+    // console.log('rendered')
+    // console.log(professionalProfileContent)
 
     let language = this.props.language;
     let content = "Loading";

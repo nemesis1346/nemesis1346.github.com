@@ -15,9 +15,7 @@ class ProjectsPage extends React.Component {
     }
     render() {
         console.log('PROJECTS');
-        console.log(this.props);
-        console.log('Language ');
-        console.log(this.props.language);
+        // console.log(this.props);
         const {
             projects,
             error
