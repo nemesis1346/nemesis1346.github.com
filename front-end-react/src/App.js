@@ -5,6 +5,7 @@ import HomePage from "./components/pages/HomePage";
 import BlogFirebasePage from './components/pages/BlogFirebasePage';
 import BlogDjangoPage from './components/pages/BlogDjangoPage';
 import SoftwareProjectsPage from './components/pages/SoftwareProjectsPage';
+import WebDesignProjectsPage from './components/pages/WebDesignProjectsPage';
 import CarouselPage from './components/pages/CarouselPage';
 import AboutMePage from './components/pages/AboutMePage';
 import 'materialize-css/dist/css/materialize.min.css';
@@ -20,6 +21,7 @@ class App extends Component {
             <Route path="/blogFirebasePage" element={<BlogFirebasePage />} />
             <Route path="/blogDjangoPage" element={<BlogDjangoPage />} />
             <Route path="/softwareProjectsPage" element={<SoftwareProjectsPage />} />
+            <Route path="/webDesignProjectsPage" element={<WebDesignProjectsPage />} />
             <Route path="/aboutMePage" element={<AboutMePage />} />
             <Route path="/carousel" element={<CarouselPage />} />
           </Routes> {/* End of Routes */}

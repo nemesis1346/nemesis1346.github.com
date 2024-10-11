@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import {
     getProjects,getProjectsByDatetime
-} from "../../actions/projectFirebaseActions";//change
+} from "../../actions/softwareProjectFirebaseActions";//change
 import ProjectCard from '../cards/ProjectCard';
 import { Message } from 'semantic-ui-react'
 import '../styles/blogPage.scss';
