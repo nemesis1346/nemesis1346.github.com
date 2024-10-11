@@ -4,7 +4,7 @@ import NavBar from "./components/navigation/NavBar";
 import HomePage from "./components/pages/HomePage";
 import BlogFirebasePage from './components/pages/BlogFirebasePage';
 import BlogDjangoPage from './components/pages/BlogDjangoPage';
-import ProjectsPage from './components/pages/ProjectsPage';
+import SoftwareProjectsPage from './components/pages/SoftwareProjectsPage';
 import CarouselPage from './components/pages/CarouselPage';
 import AboutMePage from './components/pages/AboutMePage';
 import 'materialize-css/dist/css/materialize.min.css';
@@ -19,8 +19,8 @@ class App extends Component {
             <Route path="/" element={<HomePage />} /> {/* Use element prop */}
             <Route path="/blogFirebasePage" element={<BlogFirebasePage />} />
             <Route path="/blogDjangoPage" element={<BlogDjangoPage />} />
-            <Route path="/projects" element={<ProjectsPage />} />
-            <Route path="/aboutMe" element={<AboutMePage />} />
+            <Route path="/softwareProjectsPage" element={<SoftwareProjectsPage />} />
+            <Route path="/aboutMePage" element={<AboutMePage />} />
             <Route path="/carousel" element={<CarouselPage />} />
           </Routes> {/* End of Routes */}
         </div>

@@ -8,7 +8,7 @@ import { Message } from 'semantic-ui-react'
 import '../styles/blogPage.scss';
 
 //This page done for the firebase framework with just links of medium
-class ProjectsPage extends React.Component {
+class SoftwareProjectsPage extends React.Component {
     componentWillMount() {
         //this.props.getProjects();
         this.props.getProjectsByDatetime();
@@ -42,18 +42,18 @@ class ProjectsPage extends React.Component {
     }
 }
 
-const mapStateToPropsProjectsPage = state => {
+const mapStateToPropsSoftwareProjectsPage = state => {
     //In this case objects is gonna be applied to the props of the component
     return {
-        projects: state.projectsPageReducer.projects,
-        error: state.projectsPageReducer.error,
+        projects: state.softwareProjectsPageReducer.projects,
+        error: state.softwareProjectsPageReducer.error,
         language:state.constantReducer.language
     };
 };
 
 export default connect(
-    mapStateToPropsProjectsPage,
+    mapStateToPropsSoftwareProjectsPage,
     {
         getProjects,getProjectsByDatetime
     }
-)(ProjectsPage);
+)(SoftwareProjectsPage);

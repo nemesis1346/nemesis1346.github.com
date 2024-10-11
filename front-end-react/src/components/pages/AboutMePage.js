@@ -73,9 +73,10 @@ class AboutMePage extends React.Component {
             <a href="https://github.com/nemesis1346" target="_blank">
               <img src={githubLogo} />
             </a>
-            <a href="https://gitlab.com/nemesis1346" target="_blank">
+            {/* Right not i am not using this */}
+            {/* <a href="https://gitlab.com/nemesis1346" target="_blank">
               <img src={gitlabLogo} />
-            </a>
+            </a> */}
             <a href="https://medium.com/@nemesis1346" target="_blank">
               <img src={mediumLogo} />
             </a>
