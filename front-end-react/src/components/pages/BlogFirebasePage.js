@@ -14,8 +14,8 @@ class BlogFirebasePage extends React.Component {
         this.props.getBlogsByDatetime();
     }
     render() {
-        console.log('POSTS');
-        console.log(this.props);
+        // console.log('POSTS');
+        // console.log(this.props);
         const {
             posts,
             error

@@ -3,14 +3,12 @@ import * as CONSTANTS from "../constants/types";
 import * as ERRORS from '../constants/errors';
 
 export const getProjects = () => {
-  console.log('gets here');
   return (dispatch) => {
     FirebaseApi.getDocuments("/projects")
       .then(res => {
         let projectsList = [];
         res.forEach(doc => {
-          console.log(`${doc.id} => ${doc.data()}`);
-          projectsList.push(doc.data());
+          projectsList.push(doc);
         });
         dispatch(getProjectsSuccess(projectsList));
       })
@@ -26,8 +24,8 @@ export const getProjectsByDatetime = () => {
       .then(res => {
         let projectsList = [];
         res.forEach(doc => {
-          console.log(`${doc.id} => ${doc.data()}`);
-          projectsList.push(doc.data());
+          // console.log(doc)
+          projectsList.push(doc);
         });
         dispatch(getProjectsSuccess(projectsList));
       })

@@ -6,7 +6,7 @@ class BlogCard extends React.Component {
 
     render() {
         const { post } = this.props;
-        console.log(post.url);
+        // console.log(post.url);
         return (
             <div className="post card">
                 <div className="img-container">

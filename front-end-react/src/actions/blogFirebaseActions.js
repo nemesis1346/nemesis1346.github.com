@@ -8,8 +8,7 @@ export const getBlogs = () => {
       .then(res => {
         let postsList = [];
         res.forEach(doc => {
-          console.log(`${doc.id} => ${doc.data()}`);
-          postsList.push(doc.data());
+          postsList.push(doc);
         });
         dispatch(getBlogsSuccess(postsList));
       })
@@ -25,8 +24,7 @@ export const getBlogsByDatetime = () => {
       .then(res => {
         let postsList = [];
         res.forEach(doc => {
-          console.log(`${doc.id} => ${doc.data()}`);
-          postsList.push(doc.data());
+          postsList.push(doc);
         });
         dispatch(getBlogsSuccess(postsList));
       })

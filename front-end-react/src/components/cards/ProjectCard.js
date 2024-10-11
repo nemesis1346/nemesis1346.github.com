@@ -7,7 +7,7 @@ class ProjectCard extends React.Component {
 
     render() {
         const { project } = this.props;
-        console.log(project);
+        // console.log(project);
         let language = this.props.language;
         let title;
         let text;
@@ -25,9 +25,9 @@ class ProjectCard extends React.Component {
                 text = project.textEnglish;
                 break;
         }
-        console.log('title and text');
-        console.log(title);
-        console.log(text);
+        // console.log('title and text');
+        // console.log(title);
+        // console.log(text);
         return (
             <div className="post card">
                 <div className="img-container">

@@ -3,6 +3,7 @@ process.env.FIREBASE_DEBUG = 'true';
 
 // testFirebaseStorage.js
 import { getStorage, ref, getDownloadURL } from 'firebase/storage';  // Import Firebase Storage SDK
+import { getFirestore, collection, query, orderBy, getDocs } from 'firebase/firestore';
 
 // firebaseConfig.js
 import { initializeApp } from 'firebase/app';
@@ -20,7 +21,7 @@ const FirebaseConfig = {
 };
 
 const firebaseApp = initializeApp(FirebaseConfig);
-
+const firestore = getFirestore(firebaseApp);
 
 async function testFirebaseStorage() {
     try {
@@ -37,5 +38,24 @@ async function testFirebaseStorage() {
     }
 }
 
+// Async function to test Firestore query
+async function testFirestoreQuery(path, property) {
+    try {
+        const colRef = collection(firestore, path);               // Reference to collection
+        const orderedQuery = query(colRef, orderBy(property));     // Create ordered query
+        const snapshot = await getDocs(orderedQuery);              // Get documents
+
+        // Loop through documents and log them
+        snapshot.forEach(doc => {
+            console.log(`Document ID: ${doc.id}, Data:`, doc.data());
+        });
+    } catch (error) {
+        console.error('Error fetching documents:', error);
+    }
+}
+
+
 // Call the function to test Firebase Storage
-testFirebaseStorage();
+// testFirebaseStorage();
+// Call the test function with collection path and property to order by
+testFirestoreQuery('/posts', 'timestamps');
