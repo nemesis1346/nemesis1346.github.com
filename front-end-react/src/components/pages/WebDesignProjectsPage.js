@@ -15,7 +15,7 @@ class WebDesignProjectsPage extends React.Component {
     }
     render() {
         console.log('WEBDESIGN PROJECTS');
-        console.log(this.props);
+        // console.log(this.props);
         const {
             webDesignProjects,
             error
