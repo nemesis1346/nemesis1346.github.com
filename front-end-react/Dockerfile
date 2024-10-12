@@ -14,14 +14,9 @@ RUN npm install
 # Copy the rest of the application files
 COPY . .
 
-# Build the React app
-RUN npm run build
-
-# Install serve globally to serve the production build
-RUN npm install -g serve
 
 # Expose the port the app runs on
 EXPOSE 8080
 
-# Serve the React build
-CMD ["npx", "serve", "-s", "build", "-l", "8080"]
+
+CMD [“npm,”, “start”]
