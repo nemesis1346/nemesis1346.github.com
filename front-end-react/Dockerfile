@@ -17,6 +17,9 @@ COPY . .
 # Build the React app
 RUN npm run build
 
+# Install serve globally to serve the production build
+RUN npm install -g serve
+
 # Expose the port the app runs on
 EXPOSE 8080
 
