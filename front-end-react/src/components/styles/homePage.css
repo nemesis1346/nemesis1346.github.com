@@ -1,35 +1,80 @@
+/* homePage.css */
+
+/* Flexbox layout to ensure alignment */
 .home-page-container {
-  position: absolute;
-  padding-left: 32px;
-  padding-top: 32px;
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+  padding: 20px;
 }
 
-.left-container {
-  width: 40%;
-  display: inline-block;
+/* Adjust layout for small screens (mobile) */
+@media (max-width: 768px) {
+  .home-page-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 10px;
+  }
+
+  .left-container {
+    margin-bottom: 20px;
+  }
+
+  img {
+    width: 100%;
+    max-width: 300px;
+    border-radius: 50%;
+  }
 }
-.left-container img {
-  width: 90%;
-  height: auto;
+
+/* Containers */
+.left-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .right-container {
-  float: right;
-  width: 58%;
-  padding-right: 32px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
 }
 
-.social-media-container{
+/* Button styling */
+.button-resume {
+  margin-top: 10px;
+  background-color: #007bff;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s;
+}
 
-}
-.social-media-container img{
-  width: 64px;
-  height: auto;
-}
-.button-resume{
-  margin: 16px;
+.button-resume:hover {
+  background-color: #0056b3;
 }
 
-.col-center{
-  margin:0 auto;
+/* Social media icons */
+.social-media-container {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 15px;
+}
+
+.social-media-container img {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  transition: transform 0.2s;
+}
+
+.social-media-container img:hover {
+  transform: scale(1.2);
 }
