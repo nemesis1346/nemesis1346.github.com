@@ -9,8 +9,8 @@ import {
   getProfessionalImage
 } from "../../actions/professionalFirebaseActions";
 import * as CONSTANTS from '../../constants/types';
+import { Container, Row, Col, Image, Button } from 'react-bootstrap'; // Import Bootstrap components
 import "../styles/homePage.css";
-import { Image } from 'react-bootstrap';
 
 
 class HomePage extends React.Component {
@@ -53,37 +53,35 @@ class HomePage extends React.Component {
 
     return (
 
-      <div className="home-page-container">
-        <div className="left-container holder">
-          <img src={professionalProfilePhoto} />
-        </div>
-        <div className="right-container">
+      <Container className="home-page-container">
+      <Row className="align-items-center">
+        <Col xs={12} md={6} className="left-container">
+          <Image src={professionalProfilePhoto} roundedCircle fluid />
+        </Col>
+        <Col xs={12} md={6} className="right-container">
           <h1>Marco Maigua</h1>
-          <a className="waves-effect waves-light btn button-resume" href="https://storage.cloud.google.com/cms-personal.appspot.com/documents/cv_marco_maigua.pdf" target="_blank">
-            <i>Personal Resume</i>
-          </a>
-
+          <Button 
+            href="https://storage.cloud.google.com/cms-personal.appspot.com/documents/cv_marco_maigua.pdf" 
+            target="_blank" 
+            className="button-resume"
+          >
+            Personal Resume
+          </Button>
           <p>{content}</p>
           <div className="social-media-container">
-            <a
-              href="https://www.linkedin.com/in/marco-maigua-66822584/"
-              target="_blank"
-            >
-              <img src={linkedinLogo} />
+            <a href="https://www.linkedin.com/in/marco-maigua-66822584/" target="_blank">
+              <Image src={linkedinLogo} fluid />
             </a>
             <a href="https://github.com/nemesis1346" target="_blank">
-              <img src={githubLogo} />
+              <Image src={githubLogo} fluid />
             </a>
-            {/* Right not i am not using this */}
-            {/* <a href="https://gitlab.com/nemesis1346" target="_blank">
-            <img src={gitlabLogo} />
-          </a> */}
             <a href="https://medium.com/@nemesis1346" target="_blank">
-              <img src={mediumLogo} />
+              <Image src={mediumLogo} fluid />
             </a>
           </div>
-        </div>
-      </div>
+        </Col>
+      </Row>
+    </Container>
     );
   }
 }
