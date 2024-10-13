@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Route, BrowserRouter, Routes } from "react-router-dom"; // Import Routes
+import { Route, BrowserRouter, Routes, HashRouter } from "react-router-dom"; // Import Routes
 import NavBar from "./components/navigation/NavBar";
 import HomePage from "./components/pages/HomePage";
 import BlogFirebasePage from './components/pages/BlogFirebasePage';
@@ -13,7 +13,7 @@ import 'materialize-css/dist/css/materialize.min.css';
 class App extends Component {
   render() {
     return (
-      <BrowserRouter basename={process.env.PUBLIC_URL}>
+      <HashRouter>
         <div className="App">
           <NavBar />
           <Routes> {/* Wrap Routes inside Routes */}
@@ -24,9 +24,10 @@ class App extends Component {
             <Route path="/webDesignProjectsPage" element={<WebDesignProjectsPage />} />
             <Route path="/aboutMePage" element={<AboutMePage />} />
             <Route path="/carousel" element={<CarouselPage />} />
+            <Route path="*" element={<HomePage />} /> {/* Fallback route */}
           </Routes> {/* End of Routes */}
         </div>
-      </BrowserRouter>
+      </HashRouter>
     );
   }
 }
