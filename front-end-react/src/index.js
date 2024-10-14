@@ -1,9 +1,13 @@
 // React libraries:
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
 import App from './App';
+
+//Styles libraries
 import "semantic-ui-css/semantic.min.css";
+import './components/styles/navbar.css'
+import './index.css';
+
 
 // Redux and Middleware
 import { createStore, applyMiddleware, compose } from 'redux';
