@@ -13,8 +13,9 @@
 }
 /* Ensure navbar-collapse takes full width but keeps flex behavior */
 .navbar-collapse {
-  justify-content: flex-end; /* Push items to the right */
+  justify-content: center!important;
 }
+
 .navbar {
    padding: 0px;
 }
@@ -26,6 +27,9 @@
 
 .nav-link{
   padding: 0px;
+  display: flex;           /* Use flexbox */
+  justify-content: center; /* Center horizontally */
+  align-items: center;  
 }
 .navbar-brand {
   color: white !important; /* Use !important to ensure it overrides default styles */
