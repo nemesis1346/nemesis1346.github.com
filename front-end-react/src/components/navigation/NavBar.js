@@ -5,8 +5,8 @@ import M from "materialize-css";
 import { SPANISH_LANGUAGE, ENGLISH_LANGUAGE } from '../../constants/types';
 import { setLanguage } from '../../actions/setConstantsActions';
 import { connect } from "react-redux";
-import { Container, Nav, Navbar, NavDropdown } from 'react-bootstrap'
-// import '../styles/navbar.css'
+import { Container, Nav, Navbar, NavbarBrand, NavDropdown } from 'react-bootstrap'
+import '../styles/navbar.css'
 
 class NavBar extends React.Component {
     state = {
@@ -24,27 +24,30 @@ class NavBar extends React.Component {
     }
     render() {
         return (
-            <nav className='blue darken-3'>
-                <div className='navbar-container'>
-                    <a to='#/' className='navbar-brand'>Marco Maigua</a>
+            <Navbar expand='lg' className='blue darken-3'>
+                <Container className='navbar-container'>
+                    <Navbar.Brand as={Link} to='/' className='navbar-brand'>Marco Maigua</Navbar.Brand>
+                    <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                    <Navbar.Collapse id="basic-navbar-nav">
+                        <Nav className="ms-auto justify-content-end">
+                            <Nav.Link as={Link} to="/">Home</Nav.Link>
+                            <Nav.Link as={Link} to="/softwareProjectsPage">Software Projects</Nav.Link>
+                            <Nav.Link as={Link} to="/webDesignProjectsPage">WebDesign Projects</Nav.Link>
+                            <Nav.Link as={Link} to="/blogFirebasePage">Blog</Nav.Link>
+                            {/* <li><Link to="/aboutMePage">About Me</Link></li> */}
 
-                    <ul className="navbar-links">
-                        <li><a href="#/">Home</a></li>
-                        <li><a href="#/softwareProjectsPage">Software Projects</a></li>
-                        <li><a href="#/webDesignProjectsPage">WebDesign Projects</a></li>
-                        <li><a href="#/blogFirebasePage">Blog</a></li>
-                        {/* <li><Link to="/aboutMePage">About Me</Link></li> */}
-
-                        {/* <li className='dropdown'>
+                            {/* <li className='dropdown'>
                             <a className="dropdown-trigger" href="#!" data-target="dropdown1">{this.state.language}<i className="material-icons right">arrow_drop_down</i></a>
                             <ul id="dropdown1" className="dropdown-content">
                                 <li onClick={this.onItemClick} ><a href="#!">{ENGLISH_LANGUAGE}</a></li>
                                 <li onClick={this.onItemClick} ><a href="#!">{SPANISH_LANGUAGE}</a></li>
                             </ul>
                         </li> */}
-                    </ul>
-                </div>
-            </nav>
+                        </Nav>
+                    </Navbar.Collapse>
+
+                </Container>
+            </Navbar>
         );
     }
 }
