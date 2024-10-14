@@ -5,7 +5,7 @@ import {
   getLinkedinLogo,
   getGithubLogo,
   getGitlabLogo,
-  getMediumLogo,    
+  getMediumLogo,
   getProfessionalImage
 } from "../../actions/professionalFirebaseActions";
 import * as CONSTANTS from '../../constants/types';
@@ -54,34 +54,35 @@ class HomePage extends React.Component {
     return (
 
       <Container className="home-page-container">
-      <Row className="align-items-center">
-        <Col xs={12} md={6} className="left-container">
-          <Image src={professionalProfilePhoto} roundedCircle fluid />
-        </Col>
-        <Col xs={12} md={6} className="right-container">
-          <h1>Marco Maigua</h1>
-          <Button 
-            href="https://storage.cloud.google.com/cms-personal.appspot.com/documents/cv_marco_maigua.pdf" 
-            target="_blank" 
-            className="button-resume"
-          >
-            Personal Resume
-          </Button>
-          <p>{content}</p>
-          <div className="social-media-container">
-            <a href="https://www.linkedin.com/in/marco-maigua-66822584/" target="_blank">
-              <Image src={linkedinLogo} fluid />
-            </a>
-            <a href="https://github.com/nemesis1346" target="_blank">
-              <Image src={githubLogo} fluid />
-            </a>
-            <a href="https://medium.com/@nemesis1346" target="_blank">
-              <Image src={mediumLogo} fluid />
-            </a>
-          </div>
-        </Col>
-      </Row>
-    </Container>
+        <Row className="align-items-center">
+          <Col xs={12} md={6} className="left-container order-md1 order-1">
+            <Image src={professionalProfilePhoto} roundedCircle fluid />
+          </Col>
+
+          <Col xs={12} md={6} className="right-container order-md2 order-2">
+            <h1>Marco Maigua</h1>
+            <Button
+              href="https://storage.cloud.google.com/cms-personal.appspot.com/documents/cv_marco_maigua.pdf"
+              target="_blank"
+              className="button-resume"
+            >
+              Personal Resume
+            </Button>
+            <p>{content}</p>
+            <div className="social-media-container">
+              <a href="https://www.linkedin.com/in/marco-maigua-66822584/" target="_blank">
+                <Image src={linkedinLogo} fluid />
+              </a>
+              <a href="https://github.com/nemesis1346" target="_blank">
+                <Image src={githubLogo} fluid />
+              </a>
+              <a href="https://medium.com/@nemesis1346" target="_blank">
+                <Image src={mediumLogo} fluid />
+              </a>
+            </div>
+          </Col>
+        </Row>
+      </Container>
     );
   }
 }
@@ -90,7 +91,7 @@ const mapStateToPropsHomePage = state => {
   //In this case objects is gonna be applied to the props of the component
   return {
     professionalProfilePhoto:
-    state.professionalPageReducer.professionalProfilePhoto,
+      state.professionalPageReducer.professionalProfilePhoto,
     professionalProfileContent:
       state.professionalPageReducer.professionalProfileContent,
     linkedinLogo: state.professionalPageReducer.linkedinLogo,
