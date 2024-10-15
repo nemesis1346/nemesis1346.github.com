@@ -55,11 +55,11 @@ class HomePage extends React.Component {
 
       <Container className="home-page-container">
         <Row className="align-items-center">
-          <Col xs={12} md={6} className="left-container order-md1 order-1">
+          <Col xs={12} md={6} className="left-container order-md-1 order-1">
             <Image src={professionalProfilePhoto} roundedCircle fluid />
           </Col>
 
-          <Col xs={12} md={6} className="right-container order-md2 order-2">
+          <Col xs={12} md={6} className="right-container order-md-2 order-2">
             <h1>Marco Maigua</h1>
             <Button
               href="https://storage.cloud.google.com/cms-personal.appspot.com/documents/cv_marco_maigua.pdf"

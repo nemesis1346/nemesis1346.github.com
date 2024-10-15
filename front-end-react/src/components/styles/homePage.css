@@ -2,8 +2,6 @@
 
 /* Flexbox layout to ensure alignment */
 .home-page-container {
-  display: flex;
-  flex-direction: row;
   height: 100vh;
   padding: 20px;
 }
@@ -18,12 +16,10 @@
 
   .left-container {
     margin-bottom: 20px;
-    order: 1;
     width: 100%;
   }
 
   .right-container {
-    order: 2;
     width: 100%;
   }
 
@@ -31,7 +27,6 @@
 
 /* Containers */
 .left-container {
-  flex: 1;
   display: flex;
   justify-content: center;
   align-items: center;
