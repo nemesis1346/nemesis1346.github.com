@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{forwardRef} from 'react';
 import { Link, withRouter } from 'react-router-dom';
 //This is the proper way to use materialize css in react
 import M from "materialize-css";
@@ -51,7 +51,5 @@ class NavBar extends React.Component {
         );
     }
 }
-
-
 //with Router is for givin the navbar the props input as a router
 export default connect(null, { setLanguage })(NavBar);

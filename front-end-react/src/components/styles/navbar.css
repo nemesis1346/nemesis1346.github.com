@@ -3,6 +3,8 @@
 .navbar-container{
   background-color: #1565C0 !important; 
   padding: 0px!important;
+  position: fixed;
+  z-index: 1030;
   margin: 0px!important;
   width:100%;
   display:flex!important;
@@ -49,6 +51,7 @@
   }
   .navbar-container{
     width: 100%;
+    position: static;
   }
   .navbar-collapse {
     justify-content: center; /* Push items to the right */

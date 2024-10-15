@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, createRef } from "react";
 import { Route, Routes, HashRouter } from "react-router-dom"; // Import Routes
 import NavBar from "./components/navigation/NavBar";
 import HomePage from "./components/pages/HomePage";
@@ -9,23 +9,27 @@ import WebDesignProjectsPage from './components/pages/WebDesignProjectsPage';
 import CarouselPage from './components/pages/CarouselPage';
 import AboutMePage from './components/pages/AboutMePage';
 import 'materialize-css/dist/css/materialize.min.css';
+import './components/styles/App.css';
 
 class App extends Component {
+
+
+
   render() {
     return (
       <HashRouter>
         <div className="App">
-          <NavBar />
-          <Routes> {/* Wrap Routes inside Routes */}
-            <Route path="/" element={<HomePage />} /> {/* Use element prop */}
-            {/* <Route path="/blogDjangoPage" element={<BlogDjangoPage />} /> */}
-            <Route path="/softwareProjectsPage" element={<SoftwareProjectsPage />} />
-            <Route path="/webDesignProjectsPage" element={<WebDesignProjectsPage />} />
-            <Route path="/blogFirebasePage" element={<BlogFirebasePage />} />
-            <Route path="/aboutMePage" element={<AboutMePage />} />
-            {/* <Route path="/carousel" element={<CarouselPage />} /> */}
-            <Route path="*" element={<HomePage />} /> {/* Fallback route */}
-          </Routes> {/* End of Routes */}
+          <NavBar/>
+          <main className="main-content">
+            <Routes>
+              <Route path="/" element={<HomePage />} />
+              <Route path="/softwareProjectsPage" element={<SoftwareProjectsPage />} />
+              <Route path="/webDesignProjectsPage" element={<WebDesignProjectsPage />} />
+              <Route path="/blogFirebasePage" element={<BlogFirebasePage />} />
+              <Route path="/aboutMePage" element={<AboutMePage />} />
+              <Route path="*" element={<HomePage />} />
+            </Routes>
+          </main>
         </div>
       </HashRouter>
     );

@@ -26,7 +26,7 @@ class WebDesignProjectsPage extends React.Component {
                     <Row className="app-card-list" id="app-card-list">
                         {
                             Object.keys(webDesignProjects).map(key => (
-                                <Col >
+                                <Col key={key}>
                                     <ProjectCard index={key} project={webDesignProjects[key]} />
                                 </Col>
                             ))

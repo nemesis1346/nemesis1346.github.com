@@ -26,7 +26,7 @@ class BlogFirebasePage extends React.Component {
                     <Row className="app-card-list" id="app-card-list">
                         {
                             Object.keys(posts).map(key => (
-                                <Col >
+                                <Col key={key}>
                                     <BlogCard index={key} post={posts[key]} />
                                 </Col>
                             ))}
