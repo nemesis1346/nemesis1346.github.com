@@ -14,7 +14,7 @@ class BlogDjangoPage extends React.Component {
     }
     render() {
         console.log('POSTS');
-        console.log(this.props);
+        // console.log(this.props);
         const {
             posts,
             error

@@ -4,7 +4,7 @@ import {
     getWebDesignProjects, getWebDesignProjectsByDatetime
 } from "../../actions/webDesignProjectFirebaseActions";//change
 import ProjectCard from '../cards/ProjectCard';
-import { Message } from 'semantic-ui-react'
+import { Container, Row, Col, Alert } from 'react-bootstrap'; // Import Bootstrap components
 import '../styles/blogPage.css';
 
 //This page done for the firebase framework with just links of medium
@@ -21,23 +21,25 @@ class WebDesignProjectsPage extends React.Component {
             error
         } = this.props;
         return (
-            <div>
+            <Container className="web-design-projects-page-container">
                 {webDesignProjects && webDesignProjects.length > 0 ? (
-                    <div className="app-card-list" id="app-card-list">
+                    <Row className="app-card-list" id="app-card-list">
                         {
-                            Object
-                                .keys(webDesignProjects)
-                                .map(key => <ProjectCard key={key} index={key} project={webDesignProjects[key]} />)
+                            Object.keys(webDesignProjects).map(key => (
+                                <Col >
+                                    <ProjectCard index={key} project={webDesignProjects[key]} />
+                                </Col>
+                            ))
                         }
-                    </div>
+                    </Row>
                 ) : (
-                    <Message >
-                        <Message.Header>Error</Message.Header>
+                    <Alert >
+                        <Alert.Heading>Error</Alert.Heading>
                         <p>{error}</p>
-                    </Message>
+                    </Alert>
                 )}
 
-            </div>
+            </Container>
         );
     }
 }
