@@ -5,7 +5,7 @@ import {
 } from "../../actions/blogDjangoActions";
 import BlogCard from '../cards/BlogCard';
 import { Message } from 'semantic-ui-react'
-import '../styles/blogPage.scss';
+// import '../styles/blogPage.scss';
 
 //This page done for the firebase framework with just links of medium
 class BlogDjangoPage extends React.Component {

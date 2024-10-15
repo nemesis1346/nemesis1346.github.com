@@ -1,11 +1,11 @@
 import React from "react";
 import { connect } from "react-redux";
 import {
-    getBlogs,getBlogsByDatetime
+    getBlogs, getBlogsByDatetime
 } from "../../actions/blogFirebaseActions";
 import BlogCard from '../cards/BlogCard';
-import { Message } from 'semantic-ui-react'
-import '../styles/blogPage.scss';
+import { Container, Row, Alert, Col } from 'react-bootstrap'
+import '../styles/blogPage.css';
 
 //This page done for the firebase framework with just links of medium
 class BlogFirebasePage extends React.Component {
@@ -21,23 +21,24 @@ class BlogFirebasePage extends React.Component {
             error
         } = this.props;
         return (
-            <div className="blog-page-container">
+            <Container className="blog-page-container">
                 {posts && posts.length > 0 ? (
-                    <div className="app-card-list" id="app-card-list">
+                    <Row className="app-card-list" id="app-card-list">
                         {
-                            Object
-                                .keys(posts)
-                                .map(key => <BlogCard key={key} index={key} post={posts[key]} />)
-                        }
-                    </div>
+                            Object.keys(posts).map(key => (
+                                <Col >
+                                    <BlogCard index={key} post={posts[key]} />
+                                </Col>
+                            ))}
+                    </Row>
                 ) : (
-                        <Message >
-                            <Message.Header>Error</Message.Header>
-                            <p>{error}</p>
-                        </Message>
-                    )}
+                    <Alert variant = "danger">
+                        <Alert.Heading>Error</Alert.Heading>
+                        <p>{error}</p>
+                    </Alert>
+                )}
 
-            </div>
+            </Container>
         );
     }
 }
@@ -53,6 +54,6 @@ const mapStateToPropsBlogPage = state => {
 export default connect(
     mapStateToPropsBlogPage,
     {
-        getBlogs,getBlogsByDatetime
+        getBlogs, getBlogsByDatetime
     }
 )(BlogFirebasePage);

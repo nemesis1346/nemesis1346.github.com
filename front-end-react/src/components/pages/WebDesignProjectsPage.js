@@ -5,7 +5,7 @@ import {
 } from "../../actions/webDesignProjectFirebaseActions";//change
 import ProjectCard from '../cards/ProjectCard';
 import { Message } from 'semantic-ui-react'
-import '../styles/blogPage.scss';
+import '../styles/blogPage.css';
 
 //This page done for the firebase framework with just links of medium
 class WebDesignProjectsPage extends React.Component {

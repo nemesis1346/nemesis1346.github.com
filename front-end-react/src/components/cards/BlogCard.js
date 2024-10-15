@@ -1,12 +1,13 @@
 import React from 'react';
-import '../styles/blogCard.scss';
+import '../styles/blogCard.css';
 
 
 class BlogCard extends React.Component {
 
     render() {
         const { post } = this.props;
-        // console.log(post.url);
+        console.log('BlogCard')
+        console.log(this.props);
         return (
             <div className="post card">
                 <div className="img-container">

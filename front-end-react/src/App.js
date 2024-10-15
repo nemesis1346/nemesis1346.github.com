@@ -18,12 +18,12 @@ class App extends Component {
           <NavBar />
           <Routes> {/* Wrap Routes inside Routes */}
             <Route path="/" element={<HomePage />} /> {/* Use element prop */}
-            <Route path="/blogFirebasePage" element={<BlogFirebasePage />} />
-            <Route path="/blogDjangoPage" element={<BlogDjangoPage />} />
+            {/* <Route path="/blogDjangoPage" element={<BlogDjangoPage />} /> */}
             <Route path="/softwareProjectsPage" element={<SoftwareProjectsPage />} />
             <Route path="/webDesignProjectsPage" element={<WebDesignProjectsPage />} />
+            <Route path="/blogFirebasePage" element={<BlogFirebasePage />} />
             <Route path="/aboutMePage" element={<AboutMePage />} />
-            <Route path="/carousel" element={<CarouselPage />} />
+            {/* <Route path="/carousel" element={<CarouselPage />} /> */}
             <Route path="*" element={<HomePage />} /> {/* Fallback route */}
           </Routes> {/* End of Routes */}
         </div>

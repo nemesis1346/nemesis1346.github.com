@@ -1,3 +1,13 @@
+/* homePage.css */
+
+/* Flexbox layout to ensure alignment */
+.blog-card-container {
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+  padding: 20px;
+}
+
 .card {
   display: inline-block;
   padding: 32px;
@@ -15,9 +25,6 @@
 img {
   float: left;
   width: 350px;
+  height: 200px;
   margin-right: 32px;
-}
-
-.button-style {
-  margin: 16px;
 }

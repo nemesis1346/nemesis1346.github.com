@@ -18,6 +18,7 @@
 
 .navbar {
    padding: 0px;
+   position: relative;
 }
 .navbar-brand{
   margin: 0px!important;

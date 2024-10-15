@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import {
   getCarouselImages
 } from "../../actions/professionalFirebaseActions";
-import "../styles/homePage.css";
+// import "../styles/homePage.css";
 
 import { MDBCarousel, MDBCarouselCaption, MDBCarouselInner, MDBCarouselItem, MDBView, MDBMask, MDBContainer } from "mdbreact";
 
