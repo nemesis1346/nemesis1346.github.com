@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/self-promotion/static/css/main.c5925588.css",
-    "main.js": "/self-promotion/static/js/main.07c301da.js",
+    "main.css": "/self-promotion/static/css/main.400d18e0.css",
+    "main.js": "/self-promotion/static/js/main.ea592bb2.js",
     "static/media/brand-icons.svg": "/self-promotion/static/media/brand-icons.6729d29753e000c17489.svg",
     "static/media/icons.svg": "/self-promotion/static/media/icons.62d9dae4e0040e81c980.svg",
     "static/media/outline-icons.svg": "/self-promotion/static/media/outline-icons.9c4845b4b41ef40a22fa.svg",
@@ -19,11 +19,11 @@
     "static/media/outline-icons.woff": "/self-promotion/static/media/outline-icons.ddae9b1ba9b0b42f5880.woff",
     "static/media/outline-icons.woff2": "/self-promotion/static/media/outline-icons.687a4990ea22bb1a49d4.woff2",
     "index.html": "/self-promotion/index.html",
-    "main.c5925588.css.map": "/self-promotion/static/css/main.c5925588.css.map",
-    "main.07c301da.js.map": "/self-promotion/static/js/main.07c301da.js.map"
+    "main.400d18e0.css.map": "/self-promotion/static/css/main.400d18e0.css.map",
+    "main.ea592bb2.js.map": "/self-promotion/static/js/main.ea592bb2.js.map"
   },
   "entrypoints": [
-    "static/css/main.c5925588.css",
-    "static/js/main.07c301da.js"
+    "static/css/main.400d18e0.css",
+    "static/js/main.ea592bb2.js"
   ]
 }
