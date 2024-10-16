@@ -62,7 +62,7 @@ class HomePage extends React.Component {
           <Col xs={12} md={6} className="right-container order-md-2 order-2">
             <h1>Marco Maigua</h1>
             <Button
-              href="https://storage.cloud.google.com/cms-personal.appspot.com/documents/cv_marco_maigua.pdf"
+              href="https://storage.googleapis.com/cms-personal.appspot.com/documents/cv_marco_maigua.pdf"
               target="_blank"
               className="button-resume"
             >
