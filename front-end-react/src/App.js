@@ -24,6 +24,8 @@ class App extends Component {
 
 
   toggleNavbar = () => {
+    // console.log("Previous state")
+    // console.log(!this.state.isNavbarOpen)
     this.setState((prevState) => ({
       isNavbarOpen: !prevState.isNavbarOpen
     }))
@@ -36,7 +38,6 @@ class App extends Component {
 
   render() {
 
-    const { isNavbarExpanded } = this.state;
     return (
       <HashRouter>
         <div className="App">

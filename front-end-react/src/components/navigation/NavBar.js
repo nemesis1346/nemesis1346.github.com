@@ -21,9 +21,11 @@ class NavBar extends React.Component {
 
         //use a timeout to wait for the collapse animation to finish before calculating height
         setTimeout(() => {
-            const height = !isNavbarOpen ? this.collapseRef.current.scrollHeight : 0
-            console.log('Calculating height')
-            console.log(height)
+            const height = isNavbarOpen ? 0 : this.collapseRef.current.offsetHeight
+            // console.log('Is Navbar open?')
+            // console.log(isNavbarOpen)
+            // console.log('Calculating height')
+            // console.log(height)
             updateMarginTop(height)
         }, 300) //Adjust the timeout duration as per the animation speed
     }
@@ -44,7 +46,7 @@ class NavBar extends React.Component {
                     <Navbar.Brand as={Link} to='/' className='navbar-brand'>Marco Maigua</Navbar.Brand>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" onClick={this.handleToggle} />
                     <Navbar.Collapse id="basic-navbar-nav" ref={this.collapseRef} className={this.props.isNavbarOpen ? "show" : ""}>
-                        <Nav className="ms-auto justify-content-end">
+                        <Nav className="ms-auto">
                             <Nav.Link as={Link} to="/">Home</Nav.Link>
                             <Nav.Link as={Link} to="/softwareProjectsPage">Software Projects</Nav.Link>
                             <Nav.Link as={Link} to="/webDesignProjectsPage">WebDesign Projects</Nav.Link>
