@@ -1,4 +1,4 @@
-import React,{forwardRef} from 'react';
+import React, { forwardRef } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 //This is the proper way to use materialize css in react
 import M from "materialize-css";
@@ -9,8 +9,23 @@ import { Container, Nav, Navbar, NavbarBrand, NavDropdown } from 'react-bootstra
 import '../styles/navbar.css'
 
 class NavBar extends React.Component {
+    collapseRef = React.createRef()
     state = {
         "language": 'Language'
+    }
+
+    handleToggle = () => {
+        // Call onToggle to notify App component about navbar state
+        const { isNavbarOpen, onToggle, updateMarginTop } = this.props
+        onToggle()
+
+        //use a timeout to wait for the collapse animation to finish before calculating height
+        setTimeout(() => {
+            const height = !isNavbarOpen ? this.collapseRef.current.scrollHeight : 0
+            console.log('Calculating height')
+            console.log(height)
+            updateMarginTop(height)
+        }, 300) //Adjust the timeout duration as per the animation speed
     }
 
     componentDidMount() {
@@ -19,16 +34,16 @@ class NavBar extends React.Component {
         let selects = document.querySelectorAll('select');
         M.FormSelect.init(selects, {});
     }
-    onItemClick = (e) => {
-        this.props.setLanguage(e.currentTarget.firstChild.text);
-    }
+    // onItemClick = (e) => {
+    //     this.props.setLanguage(e.currentTarget.firstChild.text);
+    // }
     render() {
         return (
-            <Navbar expand='lg' className='blue darken-3'>
+            <Navbar expand='lg' className='blue darken-3' onToggle={this.handleToggle}>
                 <Container className='navbar-container'>
                     <Navbar.Brand as={Link} to='/' className='navbar-brand'>Marco Maigua</Navbar.Brand>
-                    <Navbar.Toggle aria-controls="basic-navbar-nav" />
-                    <Navbar.Collapse id="basic-navbar-nav">
+                    <Navbar.Toggle aria-controls="basic-navbar-nav" onClick={this.handleToggle} />
+                    <Navbar.Collapse id="basic-navbar-nav" ref={this.collapseRef} className={this.props.isNavbarOpen ? "show" : ""}>
                         <Nav className="ms-auto justify-content-end">
                             <Nav.Link as={Link} to="/">Home</Nav.Link>
                             <Nav.Link as={Link} to="/softwareProjectsPage">Software Projects</Nav.Link>

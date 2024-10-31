@@ -14,13 +14,37 @@ import './components/styles/App.css';
 class App extends Component {
 
 
+  constructor(props) {
+    super(props)
+    this.state = {
+      isNavbarOpen: false,  //track if the navbar is expanded
+      marginTop: 0
+    };
+  }
+
+
+  toggleNavbar = () => {
+    this.setState((prevState) => ({
+      isNavbarOpen: !prevState.isNavbarOpen
+    }))
+  }
+
+  //Function to dynamically set margin-top of main content
+  updateMarginTop = (height) => {
+    this.setState({ marginTop: height })
+  }
 
   render() {
+
+    const { isNavbarExpanded } = this.state;
     return (
       <HashRouter>
         <div className="App">
-          <NavBar/>
-          <main className="main-content">
+          <NavBar
+            isNavbarOpen={this.state.isNavbarOpen}
+            onToggle={this.toggleNavbar}
+            updateMarginTop={this.updateMarginTop} />
+          <main className="main-content" style={{ marginTop: this.state.marginTop }}>
             <Routes>
               <Route path="/" element={<HomePage />} />
               <Route path="/softwareProjectsPage" element={<SoftwareProjectsPage />} />
