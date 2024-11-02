@@ -66,7 +66,7 @@ class HomePage extends React.Component {
               target="_blank"
               className="button-resume"
             >
-              Personal Resume
+              CV Resume
             </Button>
             <p>{content}</p>
             <div className="social-media-container">
