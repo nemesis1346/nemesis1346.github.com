@@ -20,7 +20,7 @@ export const getBlogs = () => {
 
 export const getBlogsByDatetime = () => {
   return (dispatch) => {
-    FirebaseApi.getDocumentsOrderedBy('/posts', 'timestamp')
+    FirebaseApi.getDocumentsOrderedBy('/posts', 'timestamp','desc')
       .then(res => {
         let postsList = [];
         res.forEach(doc => {

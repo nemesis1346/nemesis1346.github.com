@@ -5,7 +5,7 @@ import { getDatabase, ref, get, child, query as dbQuery, orderByKey, equalTo, on
 import { getStorage, ref as storageRef, uploadBytes, getDownloadURL } from 'firebase/storage';
 
 // Import Firebase configuration
-import FirebaseConfig from './FirebaseConfig'; 
+import FirebaseConfig from './FirebaseConfig';
 
 // Ensure Firebase is initialized only once
 let firebaseApp;
@@ -51,9 +51,9 @@ class FirebaseApi {
     }
 
     // Get documents ordered by a specific property from Firestore
-    static async getDocumentsOrderedBy(path, property) {
+    static async getDocumentsOrderedBy(path, property, orderDirection = 'asc') {
         const colRef = collection(firestore, path);
-        const orderedQuery = query(colRef, orderBy(property));
+        const orderedQuery = query(colRef, orderBy(property, orderDirection));
         const snapshot = await getDocs(orderedQuery);
         return snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() })); // Return ordered documents
     }
