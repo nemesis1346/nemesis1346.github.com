@@ -20,7 +20,7 @@ export const getProjects = () => {
 
 export const getProjectsByDatetime = () => {
   return (dispatch) => {
-    FirebaseApi.getDocumentsOrderedBy('/projects', 'timestamp','asc')
+    FirebaseApi.getDocumentsOrderedBy('/projects', 'timestamp','desc')
       .then(res => {
         let projectsList = [];
         res.forEach(doc => {
