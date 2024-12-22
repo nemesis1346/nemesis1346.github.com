@@ -18,7 +18,7 @@ class MediumApi {
             return response.data; // Return ordered documents
         } catch (error) {
             console.error(error);
-            throw new Error('Failed to fetch coins from CoinGecko API');
+            throw new Error('Failed to fetch coins from Medium API');
         }
     }
     

@@ -3,10 +3,8 @@ import { Route, Routes, HashRouter } from "react-router-dom"; // Import Routes
 import NavBar from "./components/navigation/NavBar";
 import HomePage from "./components/pages/HomePage";
 import BlogFirebasePage from './components/pages/BlogFirebasePage';
-import BlogDjangoPage from './components/pages/BlogDjangoPage';
 import SoftwareProjectsPage from './components/pages/SoftwareProjectsPage';
 import WebDesignProjectsPage from './components/pages/WebDesignProjectsPage';
-import CarouselPage from './components/pages/CarouselPage';
 import AboutMePage from './components/pages/AboutMePage';
 import 'materialize-css/dist/css/materialize.min.css';
 import './components/styles/App.css';
@@ -24,8 +22,6 @@ class App extends Component {
 
 
   toggleNavbar = () => {
-    // console.log("Previous state")
-    // console.log(!this.state.isNavbarOpen)
     this.setState((prevState) => ({
       isNavbarOpen: !prevState.isNavbarOpen
     }))

@@ -25,9 +25,7 @@ class ProjectCard extends React.Component {
                 text = project.textEnglish;
                 break;
         }
-        // console.log('title and text');
-        // console.log(title);
-        // console.log(text);
+
         return (
             <div className="post card">
                 <div className="img-container">

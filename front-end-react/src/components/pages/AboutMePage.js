@@ -1,4 +1,4 @@
-//Maybe this page is not necesarry anymore since i have the Home page for showing my profile
+//Maybe this page is not necessary anymore since i have the Home page for showing my profile
 
 import React from "react";
 import { connect } from "react-redux";
