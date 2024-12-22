@@ -1,8 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
 import {
-    getBlogs, getBlogsByDatetime
-} from "../../actions/blogFirebaseActions";
+    getBlogs
+} from "../../actions/blogMediumActions"
 import BlogCard from '../cards/BlogCard';
 import { Container, Row, Alert, Col } from 'react-bootstrap'
 import '../styles/blogPage.css';
@@ -11,11 +11,11 @@ import '../styles/blogPage.css';
 class BlogFirebasePage extends React.Component {
     componentWillMount() {
         //this.props.getBlogs();
-        this.props.getBlogsByDatetime();
+        this.props.getBlogs();
     }
     render() {
-        // console.log('POSTS');
-        // console.log(this.props);
+        console.log('BLOG MEDIUM POSTS');
+        console.log(this.props);
         const {
             posts,
             error
@@ -54,6 +54,6 @@ const mapStateToPropsBlogPage = state => {
 export default connect(
     mapStateToPropsBlogPage,
     {
-        getBlogs, getBlogsByDatetime
+        getBlogs
     }
 )(BlogFirebasePage);
