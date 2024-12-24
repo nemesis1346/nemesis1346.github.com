@@ -11,8 +11,12 @@ import {
 import * as CONSTANTS from '../../constants/types';
 import { Container, Row, Col, Image, Button } from 'react-bootstrap'; // Import Bootstrap components
 import "../styles/homePage.css";
-
-
+import {
+  CV_PDF_MARCO_MAIGUA_GOOGLE_CLOUD_URL,
+  LINKEDIN_PROFILE_URL,
+  GITHUB_PROFILE_URL,
+  MEDIUM_PROFILE_URL
+} from  '../../constants/content_urls';
 class HomePage extends React.Component {
 
   componentWillMount() {
@@ -62,7 +66,7 @@ class HomePage extends React.Component {
           <Col xs={12} md={6} className="right-container order-md-2 order-2">
             <h1>Marco Maigua</h1>
             <Button
-              href="https://storage.googleapis.com/cms-personal.appspot.com/documents/cv_marco_maigua.pdf"
+              href={CV_PDF_MARCO_MAIGUA_GOOGLE_CLOUD_URL}
               target="_blank"
               className="button-resume"
             >
@@ -70,13 +74,13 @@ class HomePage extends React.Component {
             </Button>
             <p>{content}</p>
             <div className="social-media-container">
-              <a href="https://www.linkedin.com/in/marco-maigua-66822584/" target="_blank">
+              <a href={LINKEDIN_PROFILE_URL} target="_blank">
                 <Image src={linkedinLogo} fluid />
               </a>
-              <a href="https://github.com/nemesis1346" target="_blank">
+              <a href={GITHUB_PROFILE_URL} target="_blank">
                 <Image src={githubLogo} fluid />
               </a>
-              <a href="https://medium.com/@nemesis1346" target="_blank">
+              <a href={MEDIUM_PROFILE_URL} target="_blank">
                 <Image src={mediumLogo} fluid />
               </a>
             </div>

@@ -11,10 +11,16 @@ import {
   getMediumLogo
 } from "../../actions/professionalFirebaseActions";
 import * as CONSTANTS from '../../constants/types';
+import {
+  CV_PDF_MARCO_MAIGUA_GOOGLE_CLOUD_URL,
+  LINKEDIN_PROFILE_URL,
+  GITHUB_PROFILE_URL,
+  MEDIUM_PROFILE_URL
+} from  '../../constants/content_urls';
 import "../styles/homePage.css";
 
 class AboutMePage extends React.Component {
-
+  
   componentWillMount() {
     this.props.getProfessionalImage();
     this.props.getProfessionalContent();
@@ -34,83 +40,84 @@ class AboutMePage extends React.Component {
       gitlabLogo,
       mediumLogo
     } = this.props;
-
+    
     let language = this.props.language;
     let content = "Loading";
     if (professionalProfileContent) {
       switch (language) {
         case CONSTANTS.SPANISH_LANGUAGE:
-          content = professionalProfileContent.Spanish;
-          break;
+        content = professionalProfileContent.Spanish;
+        break;
         case CONSTANTS.ENGLISH_LANGUAGE:
-          content = professionalProfileContent.English;
-          break;
+        content = professionalProfileContent.English;
+        break;
         default:
-          content = professionalProfileContent.English;
-          break;
+        content = professionalProfileContent.English;
+        break;
       }
     }
-
+    
     return (
-
+      
       <div className="home-page-container">
-        <div className="left-container holder">
-          <img src={professionalProfilePhoto} />
-        </div>
-        <div className="right-container">
-          <h1>Marco Maigua</h1>
-          <a className="waves-effect waves-light btn button-resume" href="https://storage.cloud.google.com/cms-personal.appspot.com/documents/cv_marco_maigua.pdf" target="_blank">
-            <i>Personal Resume</i>
-          </a>
-
-          <p>{content}</p>
-          <div className="social-media-container">
-            <a
-              href="https://www.linkedin.com/in/marco-maigua-66822584/"
-              target="_blank"
-            >
-              <img src={linkedinLogo} />
-            </a>
-            <a href="https://github.com/nemesis1346" target="_blank">
-              <img src={githubLogo} />
-            </a>
-            {/* Right not i am not using this */}
-            {/* <a href="https://gitlab.com/nemesis1346" target="_blank">
-              <img src={gitlabLogo} />
-            </a> */}
-            <a href="https://medium.com/@nemesis1346" target="_blank">
-              <img src={mediumLogo} />
-            </a>
-          </div>
-        </div>
+      <div className="left-container holder">
+      <img src={professionalProfilePhoto} />
       </div>
-    );
+      <div className="right-container">
+      <h1>Marco Maigua</h1>
+      <a className="waves-effect waves-light btn button-resume" href={CV_PDF_MARCO_MAIGUA_GOOGLE_CLOUD_URL} target="_blank">
+      <i>Personal Resume</i>
+      </a>
+      
+      <p>{content}</p>
+      <div className="social-media-container">
+      <a
+      href={LINKEDIN_PROFILE_URL}
+      target="_blank"
+      >
+      <img src={linkedinLogo} />
+      </a>
+      <a href={GITHUB_PROFILE_URL} target="_blank">
+      <img src={githubLogo} />
+      </a>
+      {/* Right not i am not using this */}
+      {/* <a href="https://gitlab.com/nemesis1346" target="_blank">
+        <img src={gitlabLogo} />
+        </a> */}
+        <a href={MEDIUM_PROFILE_URL} target="_blank">
+        <img src={mediumLogo} />
+        </a>
+        </div>
+        </div>
+        </div>
+      );
+    }
   }
-}
-
-const mapStateToPropsHomePage = state => {
-  //In this case objects is gonna be applied to the props of the component
-  return {
-    professionalProfilePhoto:
+  
+  const mapStateToPropsHomePage = state => {
+    //In this case objects is gonna be applied to the props of the component
+    return {
+      professionalProfilePhoto:
       state.professionalPageReducer.professionalProfilePhoto,
-    professionalProfileContent:
+      professionalProfileContent:
       state.professionalPageReducer.professionalProfileContent,
-    linkedinLogo: state.professionalPageReducer.linkedinLogo,
-    githubLogo: state.professionalPageReducer.githubLogo,
-    gitlabLogo: state.professionalPageReducer.gitlabLogo,
-    mediumLogo: state.professionalPageReducer.mediumLogo,
-    language: state.constantReducer.language
+      linkedinLogo: state.professionalPageReducer.linkedinLogo,
+      githubLogo: state.professionalPageReducer.githubLogo,
+      gitlabLogo: state.professionalPageReducer.gitlabLogo,
+      mediumLogo: state.professionalPageReducer.mediumLogo,
+      language: state.constantReducer.language
+    };
   };
-};
-
-export default connect(
-  mapStateToPropsHomePage,
-  {
-    getProfessionalImage,
-    getProfessionalContent,
-    getLinkedinLogo,
-    getGithubLogo,
-    getGitlabLogo,
-    getMediumLogo
-  }
-)(AboutMePage);
+  
+  export default connect(
+    mapStateToPropsHomePage,
+    {
+      getProfessionalImage,
+      getProfessionalContent,
+      getLinkedinLogo,
+      getGithubLogo,
+      getGitlabLogo,
+      getMediumLogo
+    }
+  )(AboutMePage);
+  
