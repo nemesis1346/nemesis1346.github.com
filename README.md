@@ -41,5 +41,3 @@ npm run deploy
 
 ---
 
-## 📌 Latest Updates  
-- The **Django folder** is currently not in use but will be integrated in the future.

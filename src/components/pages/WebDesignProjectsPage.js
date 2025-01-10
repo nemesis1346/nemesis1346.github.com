@@ -4,7 +4,7 @@ import {
     getWebDesignProjects, getWebDesignProjectsByDatetime
 } from "../../actions/webDesignProjectFirebaseActions";//change
 import ProjectCard from '../cards/ProjectCard';
-import { Container, Row, Col, Alert } from 'react-bootstrap'; // Import Bootstrap components
+import { Container, Row, Col, Alert , Spinner} from 'react-bootstrap'; // Import Bootstrap components
 import '../styles/blogPage.css';
 
 //This page done for the firebase framework with just links of medium
@@ -18,27 +18,31 @@ class WebDesignProjectsPage extends React.Component {
         // console.log(this.props);
         const {
             webDesignProjects,
-            error
+            error,
+            loading
         } = this.props;
         return (
             <Container className="web-design-projects-page-container">
-                {webDesignProjects && webDesignProjects.length > 0 ? (
-                    <Row className="app-card-list" id="app-card-list">
-                        {
-                            Object.keys(webDesignProjects).map(key => (
-                                <Col key={key}>
-                                    <ProjectCard index={key} project={webDesignProjects[key]} />
-                                </Col>
-                            ))
-                        }
-                    </Row>
-                ) : (
-                    <Alert >
-                        <Alert.Heading>Error</Alert.Heading>
-                        <p>{error}</p>
-                    </Alert>
-                )}
-
+            {loading?( <div className="d-flex justify-content-center align-items-center" style={{ height: "100vh" }}>
+                <Spinner animation="border" variant="primary" /> {/* Bootstrap Spinner */}
+                </div>
+            ):webDesignProjects && webDesignProjects.length > 0 ? (
+                <Row className="app-card-list" id="app-card-list">
+                {
+                    Object.keys(webDesignProjects).map(key => (
+                        <Col key={key}>
+                        <ProjectCard index={key} project={webDesignProjects[key]} />
+                        </Col>
+                    ))
+                }
+                </Row>
+            ) : (
+                <Alert >
+                <Alert.Heading>Error</Alert.Heading>
+                <p>{error}</p>
+                </Alert>
+            )}
+            
             </Container>
         );
     }
@@ -49,7 +53,7 @@ const mapStateToPropsWebDesignProjectsPage = state => {
     return {
         webDesignProjects: state.webDesignProjectsPageReducer.webDesignProjects,
         error: state.webDesignProjectsPageReducer.error,
-        language: state.constantReducer.language
+        loading: state.webDesignProjectsPageReducer.loading, 
     };
 };
 

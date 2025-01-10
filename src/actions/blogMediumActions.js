@@ -3,7 +3,9 @@ import * as CONSTANTS from "../constants/types";
 import * as ERRORS from '../constants/errors';
 
 export const getBlogs = () => {
-  return (dispatch, getState) => {
+  return (dispatch) => {
+    dispatch({ type: CONSTANTS.GET_BLOGS_BY_DATETIME_REQUEST });
+
     MediumApi.getMediumBlogPosts()
       .then(res => {
         let postsList = [];
